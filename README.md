@@ -32,6 +32,6 @@ This will generate a webpage at:
 
 https://yourname.github.io/reponame
 
-Therefore, the advanced statistics course website can be found here:
+Therefore, the introduction to statistics with R course website can be found here:
 https://sib-swiss.github.io/Introduction-to-statistics-with-R/
 
