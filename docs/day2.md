@@ -4,7 +4,8 @@ In this section, you will find the R code that we will use during the course. We
 
 Slides of lectures:
 
-[Download slides](assets/pdf/day2-Logistic regression and GLM - 230822.pdf){: .md-button }
+[Download slides Morning](assets/pdf/Parametric and non parametric tests - 090221.pdf){: .md-button }
+[Download slides Afternoon](assets/pdf/ANOVA and confidence intervals - 090221.pdf){: .md-button }
 
 
 The purpose of this exercise is to help you to better interpret a p-value by using R for introducing you to some simple hypothesis testing functions. As usual, be sure to read the help documentation for any new functions.
@@ -72,7 +73,7 @@ energy
 ```
 What are the assumptions you need to check for carring out a test ?
 
-??? "done" Answer
+??? done "Answer"
     ```r
     # assumption 1: data in each group are normally distributed.
     
@@ -103,7 +104,7 @@ Paired tests are used when there are two measurements (a 'pair') on the same ind
 
 Any assumptions to be tested ?
 
-??? "done" Answer
+??? done "Answer"
     ```r
     # assumption 1: Each of the paired measurements must be obtained from the same subject
     # check your sampling design !
@@ -183,7 +184,7 @@ How many tests are significant ? What if you apply a Bonferroni correction ? Wha
 
 Change the parameters of the simulations and see what is the effect on the p-values.
 
-??? "done" Answer
+??? done "Answer"
     ```r
     adj.bonf <- p.adjust(sim.p.welch.test, method="bonf")
     sum(adj.bonf < 0.05)
@@ -204,7 +205,7 @@ The dataset comes from Faraway (2002) and comprises a set of 24 blood coagulatio
 
 1. Load the data and explore the dataset
 
-??? "done" Answer
+??? done "Answer"
     ```r
     data(coagulation)
 
@@ -222,7 +223,7 @@ The dataset comes from Faraway (2002) and comprises a set of 24 blood coagulatio
 
 
 2. Fit an ANOVA model, this also means checking assumptions!
-??? "done" Answer
+??? done "Answer"
     ```r
     # check normality
 
@@ -248,7 +249,7 @@ The dataset comes from Faraway (2002) and comprises a set of 24 blood coagulatio
     summary(anova_diet)
     ```
 3. Is there some differences between the groups? If yes, which group(s) is different ?
-??? "done" Answer
+??? done "Answer"
     ```r
     # check pairwise 
 

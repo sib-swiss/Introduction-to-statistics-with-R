@@ -1,24 +1,24 @@
-# Advanced statistics: Statistical modelling
-
+# Introduction to statistics with R
 ## Teachers
 Rachel Marcone
 
-Mauro Delorenzi
+Joao Lourenco
 
 ## Material
 
 * Google doc (through mail)
-* [Slack channel](https://slack.com)
 
 
 ### General learning outcomes
 
 At the end of this course, participants will be able to:
-
-- identify the appropriate model to analyze a dataset;
-- fit the chosen model using R;
-- assess the fit of the model, as well as its limitations.
-
+- have experience in the application of basic statistics techniques
+- know how to summarize data with numerical and graphical summaries
+- plot data
+- do hypothesis testing and multiple testing correction
+- linear models
+- correlation and regression
+- principal component analysis and other topics
 
 ### Learning outcomes explained
 
@@ -26,7 +26,9 @@ To reach the general learning outcomes above, we have set a number of smaller le
 
 ## Learning experiences
 
-To reach the learning outcomes we will use lectures, exercises and group work. During exercises, you are free to discuss with other participants. During lectures, focus on the lecture only.
+The course will combine lectures on statistics and practical exercises, during which the participants will learn how to work with the widely used "R" language and environment for statistical computing and graphics.
+
+Participants will also have the opportunity to ask questions about the analysis of their own data.
 
 ### Exercises
 

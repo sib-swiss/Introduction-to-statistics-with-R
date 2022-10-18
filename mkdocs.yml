@@ -1,4 +1,4 @@
-site_name: Advanced statistics
+site_name: Introduction to statistics with R
 nav:
     - Home: index.md
     - Precourse preparation: precourse.md

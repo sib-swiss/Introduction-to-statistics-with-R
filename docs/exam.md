@@ -1,15 +1,14 @@
 ## **EXAM** :scream:
 
-The participants who need credits must answer the following questions and send the results as an R script with comments to rachel.marcone@sib.swiss until latest friday 2nd of September 2022.
+The participants who need credits must answer the following questions and send the results as an R script with comments to rachel.marcone@sib.swiss until latest February 2023.
 
 Data: A set of data collected by Heinz et al.(* Heinz G, Peterson LJ, Johnson RW, Kerk CJ Journal of Statistics Education Volume 11, Number 2 (2003)
-jse.amstat.org/v11n2/datasets.heinz.html
-Copyright © 2003 by Grete Heinz, Louis J. Peterson, Roger W. Johnson, and Carter J. Kerk, all rights reserved) is available in the file IS_23_exam.csv
+jse.amstat.org/v11n2/datasets.heinz.html, by Grete Heinz, Louis J. Peterson, Roger W. Johnson, and Carter J. Kerk, all rights reserved) is available in the file IS_23_exam.csv
 
 
 Goals: Get to know the overall structure of the data. Summarize variables numerically and graphically. Model relationships between variables.
 
-[Download exercise material](assets/Exercises_IS/IS_23_exam.csv){: .md-button }
+[Download exercise material](assets/exercises/IS_23_exam.csv){: .md-button }
 
 ## Observations
 1. Have look at the file in a text editor to get familiar with it

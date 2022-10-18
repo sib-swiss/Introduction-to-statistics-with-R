@@ -6,7 +6,7 @@ The purpose of these exercises is to introduce you to using R for regression mod
 
 Slides of lectures:
 
-[Download slides](assets/pdf/Longitudinal data.pdf){: .md-button }
+[Download slides](assets/pdf/Day3_corr_and_reg.pdf){: .md-button }
 
 ## Exercise class
 

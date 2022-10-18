@@ -5,9 +5,11 @@ In this section, you will find the R code that we will use during the course. We
 
 Slides of lectures:
 
-[Download slides Morning Lecture](assets/pdf/day1a-Intro and linear models - 220822.pdf){: .md-button }
+[Download slides Morning Lecture](assets/pdf/Exploratory data analysis - 080221.pdf){: .md-button }
 
-[Download slides Afternoon Lecture](assets/pdf/day1b-Beyond linearity - 220822.pdf){: .md-button }
+[Download slides Morning Lecture 2](assets/pdf/Data analysis with R - 080221.pdf){: .md-button }
+
+[Download slides Afternoon Lecture](assets/pdf/Introduction to hypothesis testing - 080221.pdf){: .md-button }
 
 Data for exercises:
 
@@ -37,7 +39,7 @@ help("mean")
 
 You can also use the alternative syntax 
 ```r
-?mean.
+?mean
 ```
 
 If you don't know the exact command name, use
