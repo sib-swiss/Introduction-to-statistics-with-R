@@ -40,7 +40,8 @@ Now, we apply PCA to the data, using the prcomp function. Make sure that you kno
 
 
 ```r
-pca.iris.cov = prcomp(iris[, 1:4], center = TRUE, scale. = FALSE) plot(pca.iris.cov$x, col = iris$Species, pch = 19) 
+pca.iris.cov = prcomp(iris[, 1:4], center = TRUE, scale. = FALSE) 
+plot(pca.iris.cov$x, col = iris$Species, pch = 19) 
 ```
 
 What can you see in the sample plot? 
@@ -48,7 +49,8 @@ What can you see in the sample plot?
 In addition to the sample configuration, we also look at the variable loadings, to see which variables contribute most to the principal components, and at the fraction of variance that is explained by each principal component. 
 
 ```r
-pca.iris.cov$rotation summary(pca.iris.cov) 
+pca.iris.cov$rotation 
+summary(pca.iris.cov) 
 ```
 
 Which variables have the strongest influence on each of the first two principal components? How can you use this information to interpret the sample PCA representation? 
@@ -77,7 +79,10 @@ var(iris[, 1:4])
 
 Next, we rerun the analysis with standardized variables. 
 ```r
-pca.iris.corr = prcomp(iris[, 1:4], center = TRUE, scale. = TRUE) plot(pca.iris.corr$x, col = iris$Species, pch = 19) pca.iris.corr$rotation summary(pca.iris.corr) biplot(pca.iris.corr, scale = 0) 
+pca.iris.corr = prcomp(iris[, 1:4], center = TRUE, scale. = TRUE) 
+plot(pca.iris.corr$x, col = iris$Species, pch = 19) 
+pca.iris.corr$rotation summary(pca.iris.corr) 
+biplot(pca.iris.corr, scale = 0) 
 ```
 
 How did the results change? Can we understand the change by using the information form the pairwise scatterplots and the individual variances? Which variables appear to be most important for separating the two groups of iris flowers seen in the PCA plot? 
@@ -154,9 +159,9 @@ vars <- apply(exprs(eset), 1, var)
 vars.order <- order(vars, decreasing = TRUE)  
 pca.5000 <- prcomp(t(exprs(eset)[vars.order[1:5000], ]), scale. = TRUE) 
 plot(pca.5000$x, pch = 19, cex = 2, col = factor(pData(eset)$disease.state)) 
-legend("topright", legend = levels(factor(pData(eset)$disease.state)),         col = 1:4, pch = 19)  
+legend("topright", legend = levels(factor(pData(eset)$disease.state)), col = 1:4, pch = 19)  
 pca.100 <- prcomp(t(exprs(eset)[vars.order[1:100], ]), scale. = TRUE) plot(pca.100$x, pch = 19, cex = 2, col = factor(pData(eset)$disease.state)) 
-legend("topright", legend = levels(factor(pData(eset)$disease.state)),         col = 1:4, pch = 19) 
+legend("topright", legend = levels(factor(pData(eset)$disease.state)), col = 1:4, pch = 19) 
 ```
 
 What do you notice in the last plot? The PC2 clearly splits the samples into two groups. Does this correspond to any known sample annotation? 
@@ -198,7 +203,8 @@ plot(pca.golub.cov$x[, 1:2], col = golub.sample.annot, pch = 19)
 We also apply PCA to the standardized data. 
 
 ```r
-pca.golub.corr = prcomp(t(golub.expr), center = TRUE, scale. = TRUE) plot(pca.golub.corr$x[, 1:2], col = golub.sample.annot, pch = 19) 
+pca.golub.corr = prcomp(t(golub.expr), center = TRUE, scale. = TRUE) 
+plot(pca.golub.corr$x[, 1:2], col = golub.sample.annot, pch = 19) 
 ```
 
 Try also to plot the second and third principal components instead of the first two. What may be the reason for the discrepancy between the two results? 
