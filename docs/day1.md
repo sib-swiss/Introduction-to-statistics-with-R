@@ -4,6 +4,7 @@
 In this section, you will find the R code that we will use during the course. We will explain the code and output during correction of the exercises.
 
 Slides of lectures:
+[Download slides Introduction Lecture](assets/pdf/Intro_IS23.pdf){: .md-button }
 
 [Download slides Morning Lecture](assets/pdf/Exploratory data analysis - 080221.pdf){: .md-button }
 

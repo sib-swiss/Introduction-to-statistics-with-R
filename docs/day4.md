@@ -81,7 +81,8 @@ Next, we rerun the analysis with standardized variables.
 ```r
 pca.iris.corr = prcomp(iris[, 1:4], center = TRUE, scale. = TRUE) 
 plot(pca.iris.corr$x, col = iris$Species, pch = 19) 
-pca.iris.corr$rotation summary(pca.iris.corr) 
+pca.iris.corr$rotation 
+summary(pca.iris.corr) 
 biplot(pca.iris.corr, scale = 0) 
 ```
 
@@ -107,7 +108,8 @@ We will use the GEOquery package to retrieve the data and platform annotation in
 
 The GEOquery package is available from Bioconductor, and can be installed in the following way: 
 ```r
-source("https://bioconductor.org/biocLite.R") biocLite("GEOquery")  
+source("https://bioconductor.org/biocLite.R") 
+biocLite("GEOquery")  
 ```
 And the data retrieved like this and then have a look at the downloaded data :
 ```r
@@ -160,7 +162,8 @@ vars.order <- order(vars, decreasing = TRUE)
 pca.5000 <- prcomp(t(exprs(eset)[vars.order[1:5000], ]), scale. = TRUE) 
 plot(pca.5000$x, pch = 19, cex = 2, col = factor(pData(eset)$disease.state)) 
 legend("topright", legend = levels(factor(pData(eset)$disease.state)), col = 1:4, pch = 19)  
-pca.100 <- prcomp(t(exprs(eset)[vars.order[1:100], ]), scale. = TRUE) plot(pca.100$x, pch = 19, cex = 2, col = factor(pData(eset)$disease.state)) 
+pca.100 <- prcomp(t(exprs(eset)[vars.order[1:100], ]), scale. = TRUE) 
+plot(pca.100$x, pch = 19, cex = 2, col = factor(pData(eset)$disease.state)) 
 legend("topright", legend = levels(factor(pData(eset)$disease.state)), col = 1:4, pch = 19) 
 ```
 
