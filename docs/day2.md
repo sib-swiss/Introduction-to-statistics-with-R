@@ -137,10 +137,10 @@ We are going to simulate in a very simple way weight data for WT and KO mice. We
 KO <- runif(10, min=27, max=34)
 WT <- runif(10, min=27, max=34)
 KO <- as.data.frame(KO)
-names(KO)[1] <- "weight"
+names(KO) <- "weight"
 KO$genotype <- "KO"
 WT <- as.data.frame(WT)
-names(WT)[1] <- "weight"
+names(WT) <- "weight"
 WT$genotype <- "WT"
 
 KO_WT <- rbind(KO,WT)
@@ -163,10 +163,10 @@ for (i in 1:1000) {
   KO <- runif(10, min=27, max=34)
   WT <- runif(10, min=27, max=34)
   KO <- as.data.frame(KO)
-  names(KO)[1] <- "weight"
+  names(KO)<- "weight"
   KO$genotype <- "KO"
   WT <- as.data.frame(WT)
-  names(WT)[1] <- "weight"
+  names(WT)<- "weight"
   WT$genotype <- "WT"
 
   KO_WT <- rbind(KO,WT)
