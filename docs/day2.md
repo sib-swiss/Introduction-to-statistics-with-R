@@ -195,7 +195,7 @@ Change the parameters of the simulations and see what is the effect on the p-val
     ```
 
 ## Exercise 5: ANOVA
-Install the library faraway
+Install the faraway and the tidyverse packages
 
 ```r
 library(faraway)
