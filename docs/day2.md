@@ -17,6 +17,7 @@ We use the intake data, available in the ISwR package. We will use the variable 
 ```r
 library(ISwR)
 library(ggplot2) #we will show you how to do some standard ggplots
+library(ggpubr)
 data(intake)
 ?intake
 attach(intake)

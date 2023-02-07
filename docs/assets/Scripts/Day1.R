@@ -2,7 +2,7 @@
 #-----------------
 # Introduction to statistics with R
 # 6-9 February 2023
-# Streamed from Lausanne 
+# In Lausanne 
 #-----------------
 #-----------------
 
