@@ -199,6 +199,7 @@ Install the library faraway
 
 ```r
 library(faraway)
+library(tidyverse)
 data(coagulation)
 ```
 
