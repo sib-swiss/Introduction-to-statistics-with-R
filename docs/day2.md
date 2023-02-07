@@ -4,8 +4,8 @@ In this section, you will find the R code that we will use during the course. We
 
 Slides of lectures:
 
-[Download slides Morning](assets/pdf/Parametric and non parametric tests - 090221.pdf){: .md-button }
-[Download slides Afternoon](assets/pdf/ANOVA and confidence intervals - 090221.pdf){: .md-button }
+[Download slides Morning](assets/pdf/Parametric_and_non_parametric_tests_070223.pdf){: .md-button }
+[Download slides Afternoon](assets/pdf/ANOVA_and_confidence_intervals_07022023.pdf){: .md-button }
 
 
 The purpose of this exercise is to help you to better interpret a p-value by using R for introducing you to some simple hypothesis testing functions. As usual, be sure to read the help documentation for any new functions.
