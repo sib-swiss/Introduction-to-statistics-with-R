@@ -108,8 +108,10 @@ We will use the GEOquery package to retrieve the data and platform annotation in
 
 The GEOquery package is available from Bioconductor, and can be installed in the following way: 
 ```r
-source("https://bioconductor.org/biocLite.R") 
-biocLite("GEOquery")  
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("GEOquery") 
 ```
 And the data retrieved like this and then have a look at the downloaded data :
 ```r
