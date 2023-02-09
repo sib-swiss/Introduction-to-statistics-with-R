@@ -72,6 +72,25 @@ screeplot(pca.iris.cov, type = "line")
 screeplot(pca.iris.corr, type = "line")
 
 ?screeplot
+
+###################
+### Matrix
+#### 
+
+mat <- matrix(rnorm(300,0,10),nrow=150)
+
+mat.dist <- as.matrix(dist(mat))
+head(dist(mat))
+
+heatmap(mat.dist,scale="none",Colv = NA,Rowv=NA)
+colorScale <- rev(colorRampPalette(c("blue","green","yellow","red","darkred"))(1000))
+head(colorScale)
+heatmap(mat.dist,scale="none",Colv = NA,Rowv=NA,col=colorScale)
+?hclust
+
+hE <- hclust(dist(mat))
+
+plot(hE)
 # if (!require("BiocManager", quietly = TRUE))
 #   install.packages("BiocManager")
 # 
@@ -120,6 +139,7 @@ tail(pc2.weights[order(pc2.weights$PC2), ])
 #####################
 ## Afternooon
 #####################
+
 ######
 ### Afternoon exercise
 ######
@@ -154,7 +174,7 @@ summary(banknote.df)
 pca.banknote = prcomp(banknote[, 2:7], center = TRUE, scale. = TRUE) 
 summary(pca.banknote)
 
-plot(pca.banknote$x[, 1:2], col = factor(banknote[,1]), pch = 19) 
+plot(pca.banknote$x[, 1:2], col = banknote[,1], pch = 19) 
 arrows(0, 0, 2*pca.banknote$rotation[, 1], 2*pca.banknote$rotation[, 2], col = "red", angle = 20, length = 0.1) 
 text(2.4*pca.banknote$rotation[, 1:2], colnames(banknote[, 2:7]), col = "red")
 
@@ -166,6 +186,7 @@ for (v in c("Length", "Left", "Right", "Bottom", "Top", "Diagonal")) {   boxplot
 
 library("cluster") 
 mydata1<-read.csv("dataClustering.csv") 
+summary(mydata1)
 df<-data.frame(mydata1$Coord_X ,mydata1$Coord_Y ) 
 colnames(df) <- c("X", "Y")
 plot(df$X, df$Y, pch=20) 
@@ -175,14 +196,14 @@ plot(df$X, df$Y, pch=20)
 #evaluate Euclidian distance and display distance matrix
 df.dist<-dist(df) 
 # classify 
-df.h<-hclust(df.dist,"ave") 
+df.h<-hclust(df.dist,method="average") 
 plot(df.h) 
 
 colorScale <- colorRampPalette(c("blue", "green","yellow","red","darkred"))(1000)
-heatmap(as.matrix(df.dist),Colv=NA, Rowv=NA, scale="none", col=colorScale)
+heatmap(as.matrix(df.dist), scale="none", col=colorScale)
 
 #KMEANS
-kmeans(df,3)
+kmeans(df,3)$cluster
 
 cl.1 <- kmeans(df, 3, iter.max = 1)
 plot(df, col = cl.1$cluster)
@@ -191,9 +212,6 @@ points(cl.1$centers, col = 1:5, pch = 8)
 
 kmeans(df,3)
 
-cl.1 <- kmeans(df, 3, iter.max = 1)
-plot(df, col = cl.1$cluster)
-points(cl.1$centers, col = 1:5, pch = 8)
 
 cl.10 <- kmeans(df, 3, iter.max = 10)
 plot(df, col = cl.10$cluster)
@@ -231,7 +249,7 @@ plot(BIC)
 summary(BIC)
 mod1 <- Mclust(df, x = BIC)
 summary(mod1, parameters = TRUE)
-plot(mod1, what = "classification")
+plot(mod1, what = "classification",xlim=c(1000,2000),ylim=c(1000,2000))
 
 mod2 <- Mclust(df, modelName = c("VEE"))
 plot(mod2, what = "classification")
