@@ -65,7 +65,8 @@ What do the different objects in the biplot represent? How are they connected to
 The sample scores from PCA are obtained as linear combinations of the four measured variables, with weights given by the variable loadings. Verify that this is the case e.g. for the scores for the first flower. 
 
 ```r
-iris.centered = scale(iris[, 1:4], center = TRUE, scale = FALSE) # compute linear combination scores.sample1 = iris.centered[1, ] %*% pca.iris.cov$rotation # compare to PCA scores 
+iris.centered = scale(iris[, 1:4], center = TRUE, scale = FALSE) # compute linear combination 
+scores.sample1 = iris.centered[1, ] %*% pca.iris.cov$rotation # compare to PCA scores 
 pca.iris.cov$x[1, ]/scores.sample1 
 ```
 
