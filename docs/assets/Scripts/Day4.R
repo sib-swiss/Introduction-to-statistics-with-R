@@ -13,14 +13,21 @@ data(iris)
 iris
 head(iris)
 summary(iris)
+
 boxplot(iris[, 1:4])
+
 pairs(iris[,1:4], col = iris$Species, pch = 19)
+
 boxplot(iris$Petal.Width ~ iris$Species)
 ?prcomp
 pca.iris.cov = prcomp(iris[, 1:4], center = TRUE, scale. = FALSE)
-plot(pca.iris.cov$sdev,type="l")
+summary(pca.iris.cov)
+names(pca.iris.cov)
+d <- round(pca.iris.cov$sdev^2/sum(pca.iris.cov$sdev^2),5)
 
-plot(pca.iris.cov$x, col = iris$Species, pch = 19)
+plot(pca.iris.cov$sdev,type="b")
+
+plot(pca.iris.cov$x, col = iris$Species, pch = 19,xlab=paste0("PC1 (",d[1]*100,"%)"),ylab="PC2 (5%)")
 
 
 pca.iris.cov_nc = prcomp(iris[, 1:4],center=FALSE, scale. = TRUE)
@@ -30,20 +37,23 @@ pca.iris.cov_nc_ns = prcomp(iris[, 1:4],center=FALSE, scale. = FALSE)
 plot(pca.iris.cov_nc_ns$x, col = iris$Species, pch = 19)
 
 pca.iris.cov_c_s = prcomp(iris[, 1:4],center=TRUE, scale. = TRUE)
-plot(pca.iris.cov_c_s$x, col = iris$Species, pch = 19)
-legend("bottomright", fill = unique(iris$Species), 
-       legend = c( levels(iris$Species)))
+
+
+
+plot(pca.iris.cov_c_s$x[,c(1,3)], col = iris$Species, pch = 19)
+legend("bottomright", fill = unique(iris$Species),       legend = c( levels(iris$Species)))
 
 pca.iris.cov$rotation
 summary(pca.iris.cov)
 biplot(pca.iris.cov, scale = 0)
+biplot(pca.iris.cov, scale = 0,col = c("white", "deeppink3"))
 summary(iris)
 # iris.centered_scaled = scale(iris[, 1:4], center = TRUE, scale = TRUE) # compute linear combination 
 iris.centered = scale(iris[, 1:4], center = TRUE, scale = FALSE) # compute linear combination 
 # summary(iris.centered_scaled)
 summary(iris.centered)
 scores.sample1 = iris.centered[1, ] %*% pca.iris.cov$rotation # compare to PCA scores 
-pca.iris.cov$x[1, ]/scores.sample1
+pca.iris.cov$x[1, ]==scores.sample1
 
 ?prcomp
 
@@ -61,9 +71,12 @@ par(mfrow = c(1, 2))
 screeplot(pca.iris.cov, type = "line") 
 screeplot(pca.iris.corr, type = "line")
 
+?screeplot
+# if (!require("BiocManager", quietly = TRUE))
+#   install.packages("BiocManager")
+# 
+# BiocManager::install("GEOquery") 
 
-source("https://bioconductor.org/biocLite.R") 
-biocLite("GEOquery") 
 library(GEOquery)  ## Retrieve the data from GEO 
 gds <- getGEO("GDS5093") ## If you have already downloaded the data, you can load the soft file directly ## gds <- getGEO("GDS5093.soft.gz")  ## Look at the elements of the downloaded data 
 head(Columns(gds)) 
@@ -78,6 +91,7 @@ pca <- prcomp(t(exprs(eset)), scale. = TRUE)
 plot(pca$x, pch = 19, cex = 2) 
 plot(pca) 
 round(pca$sdev^2/sum(pca$sdev^2),2)
+
 plot(pca$x, pch = 19, cex = 2, col = factor(pData(eset)$disease.state)) 
 legend("topright", legend = levels(factor(pData(eset)$disease.state)),         col = 1:4, pch = 19)
 
