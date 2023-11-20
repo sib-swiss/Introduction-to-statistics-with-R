@@ -39,16 +39,5 @@
 |         	| 3:00 PM  	| 3:30 PM  	| BREAK                               	|
 | block 4 	| 3:30 PM  	| 5:00 PM  	| [Exercises]() 	|
 
-## Day 4
-
-| block   	| start    	| end      	| subject                             	|
-|---------	|----------	|----------	|-------------------------------------	|
-| block 1 	| 9:00 AM  	| 10:30 AM 	| [Visualisation and PCA](day4.md)	|
-|         	| 10:30 AM 	| 11:00 AM 	| BREAK                               	|
-| block 2 	| 11:00 AM 	| 12:30 PM 	| [Exercises]()            	|
-|         	| 12:30 PM 	| 1:30 PM  	| BREAK                               	|
-| block 3 	| 1:30 PM  	| 3:00 PM  	| [Clustering]()  |
-|         	| 3:00 PM  	| 3:30 PM  	| BREAK                               	|
-| block 4 	| 3:30 PM  	| 5:00 PM  	| [Exercises]() 	|
 
 Generate markdown tables at [tablesgenerator.com](https://www.tablesgenerator.com/markdown_tables)
