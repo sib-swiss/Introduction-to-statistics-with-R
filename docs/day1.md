@@ -8,7 +8,7 @@ Slides of lectures:
 
 [Download slides Morning Lecture](assets/pdf/Exploratory data analysis - 080221.pdf){: .md-button }
 
-[Download slides Morning Lecture 2](assets/pdf/Data_analysis_with_R _060223.pdf){: .md-button }
+[Download slides Help for first steps in R](assets/pdf/Data_analysis_with_R _060223.pdf){: .md-button }
 
 [Download slides Afternoon Lecture](assets/pdf/Introduction_to_hypothesis_testing_06022023.pdf){: .md-button }
 
