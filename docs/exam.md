@@ -30,14 +30,3 @@ c) Get the summary statistics of "IS_23_exam".
 6. Test your hypothesis using the tests and modeling techniques from the course, based on the type of variables you have. Include tests of the 
 assumptions where appropriate.
 
-
-## PCA and clustering
-
-1. Perform a PCA using all the variables in the dataset, discarding the age and gender
-2. Do a PCA plot, using different colors for the data points for males and females.
-3. How much variance is encoded by each principal component ? 
-4. Which variables have the strongest influence on each of the first two principal components ?
-5. Create a new dataframe called PCA_coord with the coordinates of the data points on PC1 and PC2
-6. Evaluate the Euclidean distance between the data points
-7. Generate a heatmap of the distance matrix
-8. Identify clusters of the data points using a method of your choice, that has been shown during the course
