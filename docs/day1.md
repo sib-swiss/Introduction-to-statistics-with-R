@@ -1,7 +1,7 @@
 
 # Descriptive Statistics and Exploratory Data Analysis
 
-# Learning outcomes of the day
+## Learning outcomes of the day
 
 **After having completed this chapter you will be able to:**
 
