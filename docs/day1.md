@@ -1,4 +1,6 @@
 
+# Descriptive Statistics and Exploratory Data Analysis
+
 # Learning outcomes of the day
 
 **After having completed this chapter you will be able to:**
@@ -29,7 +31,8 @@ Data for exercises:
 [Download full data for the week](assets/exercises/Exercises_IS.zip){: .md-button }
 
 
-# Descriptive Statistics and Exploratory Data Analysis
+# First hands on in R
+
 
 The purpose of this exercise is to introduce you to using R for statistical analysis of data. Code that you can copy and paste is provided here to get you started. You will get the most out of the session if you also do some exploring on your own: check the help files for each function to learn what default values and optional arguments are there, and try out your own variations.
 

@@ -1,15 +1,25 @@
 # Linear Models
 
-In this section, you will find the R code that we will use during the course. We will explain the code and output during correction of the exercises.
+# Learning outcomes of the day
 
-The purpose of these exercises is to introduce you to using R for regression modeling. Applications are the estimation of parameter values, the determination of variables that are associated with each other, for example the identification of important biological factors that affect a given "outcome".
+**After having completed this chapter you will be able to:**
+
+- Understand association between variables
+- Understand correlation and how this is related to the scatterplot
+- Understand simple and multiple regression 
+
+
+# Material 
+
+
 
 Slides of lectures:
 
 [Download slides](assets/pdf/Day3_corr_and_reg.pdf){: .md-button }
 
-## Exercise class
+The purpose of these exercises is to introduce you to using R for regression modeling. Applications are the estimation of parameter values, the determination of variables that are associated with each other, for example the identification of important biological factors that affect a given "outcome".
 
+## Exercise class
 
 Go to the right directory and load the file class.csv
 

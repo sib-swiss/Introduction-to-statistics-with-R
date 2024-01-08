@@ -1,6 +1,15 @@
 # Hypothesis Testing
 
-In this section, you will find the R code that we will use during the course. We will explain the code and output during correction of the exercises.
+# Learning outcomes of the day
+
+**After having completed this chapter you will be able to:**
+
+- Understand parametric vs non parametric tests
+- Differences between one-sided/two-sided/paired/one-sample/two-sample t-tests
+- Understand how to analyse multiple group comparisons
+
+
+# Material 
 
 Slides of lectures:
 
@@ -8,10 +17,12 @@ Slides of lectures:
 [Download slides Afternoon](assets/pdf/ANOVA_and_confidence_intervals_07022023.pdf){: .md-button }
 
 
+
 The purpose of this exercise is to help you to better interpret a p-value by using R for introducing you to some simple hypothesis testing functions. As usual, be sure to read the help documentation for any new functions.
 
 
 ## Exercise 1: One-sample t-test
+
 We use the intake data, available in the ISwR package. We will use the variable pre.
 
 ```r
