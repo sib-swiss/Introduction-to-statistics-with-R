@@ -1,14 +1,26 @@
 
-# Descriptive Statistics and Exploratory Data Analysis
+# Learning outcomes of the day
+
+**After having completed this chapter you will be able to:**
+
+- Start an analysis in R / First steps in R
+- Visualise your data with a few simple commands
+- Summarise your data
+- Load data into R from a file (for example a CSV file)
+- Understand basic plotting
+
+
+
+# Material
 
 In this section, you will find the R code that we will use during the course. We will explain the code and output during correction of the exercises.
 
 Slides of lectures:
-[Download slides Introduction Lecture](assets/pdf/Intro_IS23.pdf){: .md-button }
+[Download slides Introduction Lecture](assets/pdf/Intro_IS24.pdf){: .md-button }
 
 [Download slides Morning Lecture](assets/pdf/Exploratory data analysis - 080221.pdf){: .md-button }
 
-[Download slides Help for first steps in R](assets/pdf/Data_analysis_with_R _060223.pdf){: .md-button }
+[Download slides Help for first steps in R](assets/pdf/Data_analysis_with_R _24.pdf){: .md-button }
 
 [Download slides Afternoon Lecture](assets/pdf/Introduction_to_hypothesis_testing_06022023.pdf){: .md-button }
 
@@ -16,6 +28,8 @@ Data for exercises:
 
 [Download full data for the week](assets/exercises/Exercises_IS.zip){: .md-button }
 
+
+# Descriptive Statistics and Exploratory Data Analysis
 
 The purpose of this exercise is to introduce you to using R for statistical analysis of data. Code that you can copy and paste is provided here to get you started. You will get the most out of the session if you also do some exploring on your own: check the help files for each function to learn what default values and optional arguments are there, and try out your own variations.
 
