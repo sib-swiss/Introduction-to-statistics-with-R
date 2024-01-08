@@ -102,7 +102,7 @@ library(ISwR)
 data(hellung)
 ```
 
-## Univariate numerical summaries
+### Univariate numerical summaries
 
 You can find the variable names with 
 ```r

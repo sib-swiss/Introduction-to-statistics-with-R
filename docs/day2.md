@@ -140,7 +140,7 @@ Again, make sure that you know how to interpret the output. Assuming an alpha le
 It was important here to tell t.test that this was a paired test. What happens if you leave out paired=TRUE from the t.test command? Are the assumptions for a two-sample test satisfied in this situation?
 
 
-## Exercise 4: Simulation of mice weight data and p values
+## Exercise 4: (Bonus) Simulation of mice weight data and p values
 
 We are going to simulate in a very simple way weight data for WT and KO mice. We will use a two-sample t-test for testing the difference in mean weight between the 2 groups of mice.
 
