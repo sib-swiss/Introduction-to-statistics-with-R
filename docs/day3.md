@@ -1,6 +1,6 @@
 # Linear Models
 
-# Learning outcomes of the day
+## Learning outcomes of the day
 
 **After having completed this chapter you will be able to:**
 
@@ -9,7 +9,7 @@
 - Understand simple and multiple regression 
 
 
-# Material 
+## Material 
 
 
 

@@ -1,6 +1,6 @@
 # Hypothesis Testing
 
-# Learning outcomes of the day
+## Learning outcomes of the day
 
 **After having completed this chapter you will be able to:**
 
@@ -9,7 +9,7 @@
 - Understand how to analyse multiple group comparisons
 
 
-# Material 
+## Material 
 
 Slides of lectures:
 

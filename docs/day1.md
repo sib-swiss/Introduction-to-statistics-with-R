@@ -13,7 +13,7 @@
 
 
 
-# Material
+## Material
 
 In this section, you will find the R code that we will use during the course. We will explain the code and output during correction of the exercises.
 
@@ -31,13 +31,13 @@ Data for exercises:
 [Download full data for the week](assets/exercises/Exercises_IS.zip){: .md-button }
 
 
-# First hands on in R
+## First hands on in R
 
 
 The purpose of this exercise is to introduce you to using R for statistical analysis of data. Code that you can copy and paste is provided here to get you started. You will get the most out of the session if you also do some exploring on your own: check the help files for each function to learn what default values and optional arguments are there, and try out your own variations.
 
 
-## Preliminaries: Getting help in R
+### Preliminaries: Getting help in R
 
 An excellent source of R documentation is the Comprehensive R Archive Network, or CRAN. There is a Swiss mirror site at http://cran.ch.r-project.org/. If you go to that site, you will find several links under Documentation (the fourth major entry on the left side). "Official" documentation is available under Manuals; other helpful documentation is under Contributed. For additional practice, you can also download R and add-on packages onto your own computer at home if you have one.
 
@@ -69,7 +69,7 @@ help.search()
 with the name of the concept inside double quotes within the parentheses.
 
 
-## Getting Data into R
+### Getting Data into R
 
 R has a number of functions to create data vectors, including: c(), seq(), rep(). Find out what each of these do, and make some data vectors of your choice using each.
 
@@ -118,7 +118,7 @@ All good ?
 
 Also compute the mean and sd for each variable. Which of the variables does it not make sense to summarize like this?
 
-## Univariate graphical summaries
+### Univariate graphical summaries
 
 Make histograms of each of the variables.
 
@@ -139,7 +139,7 @@ boxplot(diameter ~ glucose, data=hellung)
 
 Does the distribution (pattern of variability) of either variable appear to depend on the presence or absence of glucose? Do we have enough information to decide whether glucose is causing any difference?
 
-## A bivariate look
+### A bivariate look
 
 It is also interesting to further explore relationships between different variables. We have already looked informally at the relationship between glucose and the other variables. We can also explore the relationship between the numerical variables conc and diameter:
 
@@ -163,7 +163,7 @@ One important caveat is the configuration of your computer with regards to the d
 
 Conversely, the write.table command can be used to write a table to a file for subsequent reading into Excel. When using R studio, you can use the "import dataset" tool, that will allow you to explore the structure of the data you import. A useful feature of this tool is that, when finished, it will not only load the data, but will also print the actual R command that was used to do so, allowing you to copy it to your script for future use. Note: recent versions of R Studio load data into a variable that is not a data frame, but a more advanced structure. The resulting variable works mostly like a data frame, but there are some differences. If you have any issue, try converting it back to a data frame. For example, if you loaded data using the importer tool, you can convert it to a data frame using data2 <- as.data.frame(data)
 
-## Looking at some unknown data
+### Looking at some unknown data
 
 The data for this exercice is provided in an Excel file, data.xls. You need to export this files from Excel to either CSV or text (tab-delimited) files, and then read it in R using one of the following commands:
 ```r
@@ -221,7 +221,8 @@ Let us look at 4 different ways of plotting the data. In the case of the histogr
 datatoplot <- data[,1]
 ```
 
-## Plot 4 rows of graphs on one plot
+### Plot 4 rows of graphs on one plot
+
 ```r
 par(mfrow=c(4,1))
 ```
@@ -267,6 +268,6 @@ q()
 
 ## Looking at students data
 
-Load the file students.csv into R. It contains data collected from students at the Univerity of Lausanne.
+Load the file students.csv into R. It contains data collected from students.
 
 Look at the variables; try to know/explore the data: summarize the different variables numerically and graphically, and see if you can find relationships between them.
