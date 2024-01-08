@@ -26,6 +26,6 @@ c) Get the summary statistics of "IS_24_exam".
 2. How strong is the linear (Pearson) correlation between chest girth and height? Is it significant?
 3. If you model a linear relationship, how much does the chest girth increase per added cm of height? Is the change significant? What if you do this for males and females separately?
 4. Come up with a question for hypothesis testing of your own that includes one or more variable(s) of your choosing from the data set.
-5. Make plots as seen in the course to try to give visualization Äêbased answers to this question.
+5. Make plots as seen in the course to try to give visualization-Äêbased answers to this question.
 6. Test your hypothesis using the tests and modeling techniques from the course, based on the type of variables you have. Include tests of the assumptions where appropriate.
 
