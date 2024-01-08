@@ -20,7 +20,7 @@ In this section, you will find the R code that we will use during the course. We
 Slides of lectures:
 [Download slides Introduction Lecture](assets/pdf/Intro_IS24.pdf){: .md-button }
 
-[Download slides Morning Lecture](assets/pdf/Exploratory data analysis - 080221.pdf){: .md-button }
+[Download slides Morning Lecture](assets/pdf/Exploratory data analysis24.pdf){: .md-button }
 
 [Download slides Help for first steps in R](assets/pdf/Data_analysis_with_R _24.pdf){: .md-button }
 
