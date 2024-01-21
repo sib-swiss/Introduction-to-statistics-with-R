@@ -24,7 +24,7 @@ Slides of lectures:
 
 [Download slides Help for first steps in R](assets/pdf/Data_analysis_with_R _24.pdf){: .md-button }
 
-[Download slides Afternoon Lecture](assets/pdf/Introduction_to_hypothesis_testing_06022023.pdf){: .md-button }
+[Download slides Afternoon Lecture](assets/pdf/Introduction_to_hypothesis_testing24.pdf){: .md-button }
 
 Data for exercises:
 
