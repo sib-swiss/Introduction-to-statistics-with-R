@@ -4,6 +4,10 @@ Rachel Marcone
 
 Joao Lourenco
 
+## Helper
+
+Thomas Zwahlen
+
 ## Material
 
 * Google doc (through mail)
