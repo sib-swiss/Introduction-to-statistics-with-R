@@ -65,7 +65,7 @@ ind.obese <- which(energy$stature == "obese")
 ind.lean <- which(energy$stature == "lean")
 
 shapiro_test(energy$expend[ind.obese]) 
-shapiro_test(energy$expend[ind.lean]) 
+shapiro_test(energy$expend[ind.lean])
 
 # assumption 2: the variances for the two independent groups are equal.
 
@@ -79,6 +79,11 @@ t.test(energy$expend ~ energy$stature,var.equal=TRUE)
 
 t.test(energy$expend ~ energy$stature)
 
+t.test(energy$expend[ind.obese],energy$expend[ind.lean])
+t.test(expend~stature,data=energy)
+
+ggqqplot(energy[ind.lean,], "expend")
+identify_outliers(as.data.frame(energy[ind.lean,"expend"]))
 
 #-----------------
 #-----------------
@@ -111,8 +116,9 @@ t.test(intake$pre, intake$post, paired = T)
 # 4th exercise: simulations of datasets
 #-----------------
 ## change these how you want!
-KO <- rnorm(1000, mean=0,sd=1)
-WT <- rnorm(10, mean=4, sd=1)
+#rnorm
+KO <- runif(10, min=27, max=34)
+WT <- runif(10, min=27, max=34)
 KO <- as.data.frame(KO)
 names(KO) <- "weight"
 KO$genotype <- "KO"
@@ -135,10 +141,11 @@ res.t.test$p.value
 
 sim.p.welch.test <- NULL
 sim.p.t.test <- NULL
+sim.p.wilcox.test <- NULL
 
 for (i in 1:1000) {
-  KO <- runif(10, min=27, max=34)
-  WT <- runif(10, min=27, max=34)
+  KO <- runif(3, min=27, max=29)
+  WT <- runif(3, min=29, max=34)
   KO <- as.data.frame(KO)
   names(KO)[1] <- "weight"
   KO$genotype <- "KO"
@@ -150,10 +157,11 @@ for (i in 1:1000) {
   
   res.welch.test <- t.test(KO_WT$weight ~ KO_WT$genotype)
   res.t.test <- t.test(KO_WT$weight ~ KO_WT$genotype, var.equal = T)
-  
+  res.wilcox.test <- wilcox.test(KO_WT$weight ~ KO_WT$genotype)
   sim.p.welch.test <- c(sim.p.welch.test, res.welch.test$p.value)
   sim.p.t.test <- c(sim.p.t.test, res.t.test$p.value)
-}
+  sim.p.wilcox.test <- c(sim.p.wilcox.test,res.wilcox.test$p.value)
+  }
 
 str(sim.p.welch.test)
 str(sim.p.t.test)
@@ -176,7 +184,10 @@ data(coagulation)
 
 # check the data
 summary(coagulation)
+
 get_summary_stats(group_by(coagulation,diet),coag, type = "mean_sd") 
+
+
 coagulation %>% group_by(diet) %>% get_summary_stats(coag, type = "mean_sd") 
 
 boxplot(coagulation$coag ~ coagulation$diet)
@@ -184,9 +195,9 @@ boxplot(coagulation$coag ~ coagulation$diet)
 ggboxplot(coagulation, x="diet",y="coag")
 
 # check normality
-
+ind.A <- which(coagulation$diet=="A")
 ?ggqqplot
-ggqqplot(coagulation[coagulation$diet=="A",], "coag")
+ggqqplot(coagulation[ind.A,], "coag")
 ggqqplot(coagulation[coagulation$diet=="B",], "coag")
 ggqqplot(coagulation[coagulation$diet=="C",], "coag")
 ggqqplot(coagulation[coagulation$diet=="D",], "coag")
