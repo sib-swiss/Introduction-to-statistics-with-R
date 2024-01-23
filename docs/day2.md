@@ -113,6 +113,7 @@ Check that you understand the output. For an alpha level of 0.01, do you reject 
 
 ## Exercise 3: Paired t-test
 
+For this exercise we take again the intake data set. For same individuals measurements were taken premenstrual and postmenstrual.
 Paired tests are used when there are two measurements (a 'pair') on the same individual. A paired test is essentially a one-sample test of the differences between the measurements.
 
 Any assumptions to be tested ?

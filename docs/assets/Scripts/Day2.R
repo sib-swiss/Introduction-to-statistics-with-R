@@ -77,6 +77,7 @@ car::leveneTest(expend~stature, energy, center = "median")
 
 t.test(energy$expend ~ energy$stature,var.equal=TRUE)
 
+t.test(energy$expend ~ energy$stature)
 
 
 #-----------------
