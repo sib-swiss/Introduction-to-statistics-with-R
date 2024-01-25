@@ -1,3 +1,11 @@
+#-----------------
+#-----------------
+# Introduction to statistics with R
+# January 2024
+# In Lausanne 
+#-----------------
+#-----------------
+
 #####
 ## Exercise class
 #####
@@ -171,7 +179,6 @@ names(as.data.frame(pd))
 ####
 
 ### go in the directory where you have the data
-#setwd("/Users/Rachel/Downloads/2020/IS20/")
 ##open it and look at it 
 clin <- read.csv("clindata.csv")
 expr <- read.csv("expression-esr1.csv")

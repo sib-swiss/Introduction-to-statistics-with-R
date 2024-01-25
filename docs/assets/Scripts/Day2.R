@@ -1,7 +1,7 @@
 #-----------------
 #-----------------
 # Introduction to statistics with R
-# 6 - 9 February 2023
+# January 2024
 # In Lausanne 
 #-----------------
 #-----------------
