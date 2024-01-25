@@ -483,8 +483,7 @@ You can use the cor() command on a table of variables and which will calculate a
     summary(clin)
     head(expr)
     dim(expr)
-    rownames(expr)<- expr[,1]
-    ##check all the correlation (Pearson) and see which one correspond
+        ##check all the correlation (Pearson) and see which one correspond
     cor(expr)
     
     ##for loop to see all the correlations with ER status

@@ -73,6 +73,8 @@ z2 <- x2^2
 summary(lm(y2 ~ x2 + z2))
 
 summary(lm(y2 ~ z2))
+
+
 #### 
 ## Afternoon script 3rd Day
 ####
@@ -93,7 +95,7 @@ bg <- thuesen$blood.glucose
 summary(thuesen)## we already see a NA
 cor(thuesen)## this gives a problem
 ?cor
-round(cor(thuesen,use="complete.obs"),4)
+round(cor(thuesen,use="complete.obs",method="spearman"),4)
 
 plot(bg, sv)
 
@@ -110,11 +112,13 @@ reg_line <- 1.09781 + 0.02196 * bg
 reg_line2 <- coef(th.lm)[1]+coef(th.lm)[2]*bg
 
 
+
 ### look at residuals
 th.resid <- resid(th.lm)
 
 th.resid
 th.lm$residuals
+
 bg.1 <- bg[! is.na(sv)] 
 plot(bg.1,th.resid,pch=16)
 abline(h=0)
@@ -128,7 +132,7 @@ th.fv <- fitted.values(th.lm)
 plot(th.fv, th.resid,pch=16)
 abline(h=0)
 
-#### caculating the hat
+#### calculating the hat
 
 th.hat <- lm.influence(th.lm)
 sort(th.hat$hat)
@@ -153,6 +157,7 @@ plot(bg, sv, pch=16, xlab="Blood Glucose", ylab= "Shortening Velocity")
 abline(lm(sv~bg))
 points(bg[th])
 points(bg[th.highlev],sv[th.highlev],pch=16,col="blue",cex=2)
+
 pd <- predict.lm(th.lm,interval="confidence")
 lines(sort(bg.1),as.data.frame(pd)$lwr[order(bg.1)],col="grey")
 lines(sort(bg.1),as.data.frame(pd)$upr[order(bg.1)],col="grey")
@@ -166,7 +171,7 @@ names(as.data.frame(pd))
 ####
 
 ### go in the directory where you have the data
-setwd("/Users/Rachel/Downloads/2020/IS20/")
+#setwd("/Users/Rachel/Downloads/2020/IS20/")
 ##open it and look at it 
 clin <- read.csv("clindata.csv")
 expr <- read.csv("expression-esr1.csv")
@@ -184,7 +189,7 @@ cor(expr)
 rownames(expr) == clin$sample
 ##for loop to see all the correlations with ER status
 for(i in 1:9){
-  print(cor(expr[,i],as.numeric(clin[rownames(expr),"er"]),method="spearman"))
+  print(cor(expr[,i],as.numeric(clin[,"er"]),method="spearman"))
 }
 ### put them in a variable
 s <- c()
