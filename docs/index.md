@@ -16,13 +16,13 @@ Thomas Zwahlen
 ### General learning outcomes
 
 At the end of this course, participants will be able to:
-- have experience in the application of basic statistics techniques
-- know how to summarize data with numerical and graphical summaries
-- plot data
-- do hypothesis testing and multiple testing correction
-- linear models
-- correlation and regression
-- principal component analysis and other topics
+* have experience in the application of basic statistics techniques
+* know how to summarize data with numerical and graphical summaries
+* plot data
+* do hypothesis testing and multiple testing correction
+* linear models
+* correlation and regression
+* principal component analysis and other topics.
 
 ### Learning outcomes explained
 
