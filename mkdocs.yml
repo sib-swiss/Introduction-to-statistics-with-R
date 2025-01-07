@@ -14,8 +14,7 @@ theme:
   name: material
   logo: assets/images/SIB_logo.svg
   favicon: assets/images/SIB_logo.svg
-	features: 
-		- content.code.copy
+  features: content.code.copy
 
 # Repository
 repo_name: sib-swiss/Introduction-to-statistics-with-R
