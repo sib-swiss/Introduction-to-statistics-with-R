@@ -11,7 +11,7 @@
 |         	| 10:30 AM 	| 11:00 AM 	| BREAK                          	|
 | block 2 	| 11:00 AM 	| 12:30 PM 	| [Exercises]() 	     |
 |         	| 12:30 PM 	| 1:30 PM  	| BREAK                          	|
-| block 3 	| 1:30 PM  	| 3:00 PM  	| [Introduction to hypothesis testing, multiple testing]()             	 |
+| block 3 	| 1:30 PM  	| 3:00 PM  	| [Introduction to hypothesis testing]()             	 |
 |         	| 3:00 PM  	| 3:30 PM  	| BREAK                          	|
 | block 4 	| 3:30 PM  	| 5:00 PM  	| [Exercises]()                  |
 
@@ -23,7 +23,7 @@
 |         	| 10:30 AM 	| 11:00 AM 	| BREAK                               	|
 | block 2 	| 11:00 AM 	| 12:30 PM 	| Exercises  |
 |         	| 12:30 PM 	| 1:30 PM  	| BREAK                               	|
-| block 3 	| 1:30 PM  	| 3:00 PM  	| [Multiple group comparison and Confidence intervals]()      	|
+| block 3 	| 1:30 PM  	| 3:00 PM  	| [ANOVA]()      	|
 |         	| 3:00 PM  	| 3:30 PM  	| BREAK                               	|
 | block 4 	| 3:30 PM  	| 5:00 PM  	| Exercises	|
 
@@ -31,13 +31,11 @@
 
 | block   	| start    	| end      	| subject                             	|
 |---------	|----------	|----------	|-------------------------------------	|
-| block 1 	| 9:00 AM  	| 10:30 AM 	| [Correlation and regression](day3.md)	|
+| block 1 	| 9:00 AM  	| 10:30 AM 	| [Correlation and simple regression](day3.md)	|
 |         	| 10:30 AM 	| 11:00 AM 	| BREAK                               	|
 | block 2 	| 11:00 AM 	| 12:30 PM 	| [Exercises]()            	|
 |         	| 12:30 PM 	| 1:30 PM  	| BREAK                               	|
-| block 3 	| 1:30 PM  	| 3:00 PM  	| [Correlation and regression2](day3.md)  |
+| block 3 	| 1:30 PM  	| 3:00 PM  	| [Multiple regressions](day3.md)  |
 |         	| 3:00 PM  	| 3:30 PM  	| BREAK                               	|
 | block 4 	| 3:30 PM  	| 5:00 PM  	| [Exercises]() 	|
 
-
-Generate markdown tables at [tablesgenerator.com](https://www.tablesgenerator.com/markdown_tables)
