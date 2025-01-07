@@ -6,12 +6,7 @@ Joao Lourenco
 
 ## Helper
 
-Thomas Zwahlen
-
-## Material
-
-* Google doc (through mail)
-
+Tania Wyss
 
 ### General learning outcomes
 

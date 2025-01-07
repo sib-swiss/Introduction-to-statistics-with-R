@@ -15,9 +15,10 @@
 
 Slides of lectures:
 
-[Download slides](assets/pdf/Day3_corr_and_reg.pdf){: .md-button }
+[Download slides morning](assets/pdf/Day3_corr_simple_reg_25.pdf){: .md-button }
+[Download slides afternoon](assets/pdf/Day3_multiple_reg_25.pdf){: .md-button }
 
-The purpose of these exercises is to introduce you to using R for regression modeling. Applications are the estimation of parameter values, the determination of variables that are associated with each other, for example the identification of important biological factors that affect a given "outcome".
+The purpose of these exercises is to introduce you to using R for modeling. Applications are the estimation of parameter values, the determination of variables that are associated with each other, for example the identification of important biological factors that affect a given outcome.
 
 ## Exercise class
 
@@ -81,11 +82,8 @@ Do a summary of the linear model to see the residuals the degrees of freedom and
 summary( lm( Height ~ Age, data = class) )
 ```
 
-
-
-
-
 ## Anscombe data
+
 We will start by exploring the classic Anscombe example data set which comes with R. You will soon see why it is 'instructive'. It has been created for the didactic purpose to make people analysing data aware of the fact that while correlation is very convenient and useful, one should know certain limitations. This analysis will demonstrate the importance of examining scatterplots as part of data analysis. First we load the data.
 
 ```r
@@ -411,7 +409,14 @@ We can find measurements corresponding to the highest leverage points as follows
 th.highlev <- identify(index,th.hat$hat)
 ```
 
-and then click on the two highest points in the graphical window (they should be at index 4 and 13). When you are finished, return t the R console window and see which points they are:
+and then click on the two highest points in the graphical window (they should be at index 4 and 13). 
+
+??? Warning
+
+    This may look like you did not do anything, but R registered the number of the points you have clicked on
+  
+
+When you are finished, return to the R console window and see which points they are:
 ```r
 th.highlev # should be 4 , 13
 ```
@@ -501,3 +506,17 @@ You can use the cor() command on a table of variables and which will calculate a
     plot(clin$er,expr[,1])
     ```
     
+    
+## Bonus Exercice
+
+Already done ? You can have a look at the advanced topics with more exercises and interesting subjects [here.](https://sib-swiss.github.io/Introduction-to-statistics-with-R/day4/) 
+
+Or try to understand the multiple regression with categorical variables and interaction between them.
+
+For that have a look at the chapter [Interactions](https://genomicsclass.github.io/book/pages/interactions_and_contrasts.html) in the book from the genomics class' github 
+[http://genomicsclass.github.io/book/](http://genomicsclass.github.io/book/)
+
+The data comes from [this paper](https://www.jstor.org/stable/48576004).
+
+
+

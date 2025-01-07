@@ -13,8 +13,8 @@
 
 Slides of lectures:
 
-[Download slides Morning](assets/pdf/Parametric_and_non_parametric_tests_24.pdf){: .md-button }
-[Download slides Afternoon](assets/pdf/ANOVA_and_confidence_intervals_24.pdf){: .md-button }
+[Download slides Morning](assets/pdf/Parametric_and_non_parametric_tests_25.pdf){: .md-button }
+[Download slides Afternoon](assets/pdf/ANOVA_and_confidence_intervals_25.pdf){: .md-button }
 
 
 

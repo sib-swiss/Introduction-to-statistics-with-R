@@ -18,13 +18,13 @@
 In this section, you will find the R code that we will use during the course. We will explain the code and output during correction of the exercises.
 
 Slides of lectures:
-[Download slides Introduction Lecture](assets/pdf/Intro_IS24.pdf){: .md-button }
+[Download slides Introduction Lecture](assets/pdf/Intro_IS25.pdf){: .md-button }
 
-[Download slides Morning Lecture](assets/pdf/Exploratory data analysis24.pdf){: .md-button }
+[Download slides Morning Lecture](assets/pdf/Exploratory data analysis_25.pdf){: .md-button }
 
-[Download slides Help for first steps in R](assets/pdf/Data_analysis_with_R _24.pdf){: .md-button }
+[Download slides Help for first steps in R](assets/pdf/Data_analysis_with_R _25.pdf){: .md-button }
 
-[Download slides Afternoon Lecture](assets/pdf/Introduction_to_hypothesis_testing24.pdf){: .md-button }
+[Download slides Afternoon Lecture](assets/pdf/Introduction_to_hypothesis_testing_25.pdf){: .md-button }
 
 Data for exercises:
 
@@ -251,10 +251,67 @@ boxplot(datatoplot, horizontal=TRUE, ylim=range(datatoplot))
 
 Do these plots for the three different datasets. Are there cases where some plots are more adapted to the data than others ? What about the number of bars in the histograms ?
 
+
+
+
+
+## Testing the normality of a normally distributed dataset
+
+This is a small exercise to understand normally distributed data and t-tests.
+
+First, let us create a set of normally distributed data. In R, one can generate randomly normally distributed data using the rnorm function.
+
+ ```r
+  x <- rnorm(10000,mean=0, sd=1)
+ ```
+ 
+Visualise it using histograms. 
+
+  ```r
+  hist(x)
+  ```
+  
+test for statistical difference and try to understand the output, i.e is the mean different from 0?
+
+  ```r
+  t.test(x)
+  ```
+Find a way to get the p-value for this test
+
+??? Answer 
+    ```r
+    t.test(x)$p.value
+    ```
+
+Repeat this test 10 times. For that create a vector with 10 entries. 
+Then fill these entries with a loop. 
+
+  ```r
+  s <- rep(0,10) # this is an empty vector with 10 entries
+  for(i in 1:10){ # this is a loop, called a "for" loop, it will repeat 
+                # everything in parenthesis 10 times changing the variable
+                # i from 1 to 10 at each iteration
+  x <- rnorm(10000,mean=0, sd=1)
+  s[i] <- t.test(x)$p.value # does a t.test then takes the p.value obtained and
+                            # puts it into the i-th entry of s
+  
+  }
+  ```
+Print the variable that you created to see if the test got significant by chance.
+
+  ```r
+  s
+  ```
+  
+Repeat this with 100 or 1000 iterations. 
+
+## Quitting R 
+
 You will not need to save any R objects that you created today (unless you wish to), so feel free to 'clean up' after yourself with rm(). To remove all objects in your workspace (permanently and irreversibly, so be careful), type rm(list=ls()), or simply answer n when asked if you wish to save your workspace image. This question appears on the screen when you quit R; to quit, type
-```r
-q()
-```
+
+  ```r
+  q()
+  ```
 
 ??? Hint
     Before quitting, try just typing
@@ -262,9 +319,7 @@ q()
     ```r
     q
     ```
-
-    without any parentheses. This might help you to remember that you need the parentheses!
-
+    without any parentheses. This might help you to remember that you need the parentheses!   
 
 ## Looking at students data
 
