@@ -255,17 +255,17 @@ Do these plots for the three different datasets. Are there cases where some plot
 
 
 
-## Testing the normality of a normally distributed dataset
+## Testing the mean of a normally distributed dataset
 
 This is a small exercise to understand normally distributed data and t-tests.
 
-First, let us create a set of normally distributed data. In R, one can generate randomly normally distributed data using the rnorm function.
+First, let us create a set of normally distributed data. In R, one can generate randomly normally distributed data using the rnorm function where one can choose the mean and the standard deviation. Here, we choose it to be 0.
 
  ```r
   x <- rnorm(10000,mean=0, sd=1)
  ```
  
-Visualise it using histograms. 
+Visualise the data using histograms. 
 
   ```r
   hist(x)
@@ -303,7 +303,7 @@ Print the variable that you created to see if the test got significant by chance
   s
   ```
   
-Repeat this with 100 or 1000 iterations. 
+Repeat this with 100 or 1000 iterations. Change the value for the mean and test it.
 
 ## Quitting R 
 
