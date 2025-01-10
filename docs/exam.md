@@ -8,15 +8,15 @@ jse.amstat.org/v11n2/datasets.heinz.html, by Grete Heinz, Louis J. Peterson, Rog
 
 Goals: Get to know the overall structure of the data. Summarize variables numerically and graphically. Model relationships between variables.
 
-[Download exercise material](assets/exercises/IS_24_exam.csv){: .md-button }
+[Download exercise material](assets/exercises/IS_25_exam.csv){: .md-button }
 
 ## Observations
 1. Have look at the file in a text editor to get familiar with it
 2. Open a new script file in R studio, comment it and save it.
-3. Read the file, assign it to object "IS_24_exam". Examine "IS_24_exam".
+3. Read the file, assign it to object "IS_25_exam". Examine "IS_25_exam".
 a) How many observations and variables does the dataset have ?
 b) What are the names and types of the variables ?
-c) Get the summary statistics of "IS_24_exam".
+c) Get the summary statistics of "IS_25_exam".
 4. Make a scatter plot of all pairs of variables in the dataset.
 5. Calculate the BMI of each person and add it as an extra variable "bmi" to your dataframe (Google the BMI formula).
 
