@@ -1,6 +1,6 @@
 ## **EXAM** :scream:
 
-The participants who need credits must answer the following questions and send the results as an R script with comments to rachel.marcone@sib.swiss until latest end of January 2024.
+The participants who need credits must answer the following questions and send the results as an R script with comments to rachel.marcone@sib.swiss until latest end of 05 February 2025.
 
 Data: A set of data collected by Heinz et al.(* Heinz G, Peterson LJ, Johnson RW, Kerk CJ Journal of Statistics Education Volume 11, Number 2 (2003)
 jse.amstat.org/v11n2/datasets.heinz.html, by Grete Heinz, Louis J. Peterson, Roger W. Johnson, and Carter J. Kerk, all rights reserved) is available in the file IS_24_exam.csv
