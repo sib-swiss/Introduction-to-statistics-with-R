@@ -81,7 +81,7 @@ read.table()
 data <- matrix(c(1,2,3,5,6,7),nrow=2)
 
 # you can access the row 2 and the column 3 
-data[2,3]
+data[2,]
 
 # you can also have dataframes (mix of matrix with different types for the columns)
 

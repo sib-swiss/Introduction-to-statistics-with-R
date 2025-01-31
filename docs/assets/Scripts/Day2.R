@@ -1,7 +1,7 @@
 #-----------------
 #-----------------
 # Introduction to statistics with R
-# January 2024
+# January 2025
 # In Lausanne 
 #-----------------
 #-----------------
@@ -37,16 +37,18 @@ ggboxplot(intake$pre, width = 0.5, add = c("mean","jitter"),
 identify_outliers(as.data.frame(intake$pre))
 
 # Assumption: normality
-qqplot
-qqline
+
+qqnorm(intake$pre)
+qqline(intake$pre)
+
 ggqqplot(intake,"pre")
 
 shapiro_test(intake$pre)
 
 # t test
 
-t.test(pre, mu=7725)
-t.test(pre, mu=7725, alternative="less")
+t.test(pre, mu=7725) #one sample two sided t test
+t.test(pre, mu=7725, alternative="less") #one sample one sided t test
 
 
 
@@ -61,12 +63,15 @@ energy
 
 # assumption 1: data in each group are normally distributed.
 
-ind.obese <- which(energy$stature == "obese")
+ind.obese <- which(energy[,"stature"] == "obese")
 ind.lean <- which(energy$stature == "lean")
 
 shapiro_test(energy$expend[ind.obese]) 
+qqnorm(energy$expend[ind.obese])
+qqline(energy$expend[ind.obese])
 shapiro_test(energy$expend[ind.lean])
-
+qqnorm(energy$expend[ind.lean])
+qqline(energy$expend[ind.lean])
 # assumption 2: the variances for the two independent groups are equal.
 
 levene_test(energy, expend~stature)
@@ -127,6 +132,8 @@ names(WT) <- "weight"
 WT$genotype <- "WT"
 
 KO_WT <- rbind(KO,WT)
+shapiro.test(WT$weight)
+shapiro.test(KO$weight)
 
 boxplot(KO_WT$weight ~ KO_WT$genotype, main="Mice weight at 18 weeks", xlab="", ylab="")
 
@@ -144,13 +151,13 @@ sim.p.t.test <- NULL
 sim.p.wilcox.test <- NULL
 
 for (i in 1:1000) {
-  KO <- runif(3, min=27, max=29)
-  WT <- runif(3, min=29, max=34)
+  KO <- runif(3, min=30, max=34)
+  WT <- runif(3, min=27, max=29)
   KO <- as.data.frame(KO)
-  names(KO)[1] <- "weight"
+  names(KO) <- "weight"
   KO$genotype <- "KO"
   WT <- as.data.frame(WT)
-  names(WT)[1] <- "weight"
+  names(WT) <- "weight"
   WT$genotype <- "WT"
   
   KO_WT <- rbind(KO,WT)
@@ -167,7 +174,9 @@ str(sim.p.welch.test)
 str(sim.p.t.test)
 sum(sim.p.welch.test < 0.05)
 sum(sim.p.t.test < 0.05)
+sum(sim.p.wilcox.test<0.05)
 plot(sim.p.t.test,sim.p.welch.test)
+
 adj.bonf <- p.adjust(sim.p.welch.test, method="bonf")
 sum(adj.bonf < 0.05)
 adj.BH <- p.adjust(sim.p.welch.test, method="BH")
@@ -192,7 +201,7 @@ coagulation %>% group_by(diet) %>% get_summary_stats(coag, type = "mean_sd")
 
 boxplot(coagulation$coag ~ coagulation$diet)
 
-ggboxplot(coagulation, x="diet",y="coag")
+ggboxplot(coagulation, x="diet",y="coag",add="jitter")
 
 # check normality
 ind.A <- which(coagulation$diet=="A")
