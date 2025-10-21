@@ -19,6 +19,9 @@ Slides of lectures:
 ## The Iris data set 
 
 We will study the iris data set, containing measurements of the petal length and width and the sepal length and width for 150 iris flowers of three different types. The data set is available within R. First, we load the data, display its structure and summarize its content. 
+
+
+
 ```r
 data(iris) 
 str(iris) 
@@ -38,17 +41,57 @@ pairs(iris[,1:4], col = iris$Species, pch = 19)
 
 What do the colors represent? Are there any apparent associations between the variables? 
 
+
 We can also create boxplots of the individual variables stratified by iris type. 
 ```r
 boxplot(iris$Petal.Width ~ iris$Species) 
 ```
 
+We can also use hierarchical clustering and the library ComplexHeatmap to generate complex and nice plots. Look up the help, there you can browse through all possible ways to increase the look of the heatmap. 
+
+```r
+library(ComplexHeatmap)
+library(circlize)
+col_fun <- colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
+
+species_annot <- HeatmapAnnotation(
+  Species = iris$Species,
+  col = list(Species = c(
+    setosa = "gold",
+    versicolor = "lightgreen",
+    virginica = "lightblue"
+  )),
+  annotation_name_side = "left"
+)
+
+Heatmap(
+  t(scale(iris[, -5])),
+  name = "Scaled value",
+  top_annotation = species_annot,
+  col = col_fun
+)
+```
+
+Find which parameters define the method for the hierarchical clustering and change the default behavior.
+
+??? Answer
+      ```r
+      Heatmap(
+      t(scale(iris[, -5])),
+      name = "Scaled value",
+      top_annotation = species_annot,
+      col = col_fun,
+      clustering_method_columns ="average",
+      clustering_distance_columns = "pearson")
+      ```
+
 Now, we apply PCA to the data, using the prcomp function. Make sure that you know what the arguments to the function stand for. 
 
 
 ```r
+cols <- c(setosa = "gold", versicolor = "lightgreen", virginica = "lightblue")
 pca.iris.cov = prcomp(iris[, 1:4], center = TRUE, scale. = FALSE) 
-plot(pca.iris.cov$x, col = iris$Species, pch = 19) 
+plot(pca.iris.cov$x, col = cols[iris$Species], pch = 19) 
 ```
 
 What can you see in the sample plot? 
@@ -148,7 +191,7 @@ head(exprs(eset))
 head(fData(eset)) 
 ```
 
-## Principal component analysis 
+### Principal component analysis 
 
 First we perform a PCA using all the variables in the data set. We will perform the following analyses using data on probeset level, but it could also be done after summarizing the expression for all probe sets targeting the same gene. 
 ```r
