@@ -44,15 +44,29 @@ To proceed, you will need to start R. We asked you to install RStudio as this is
 
 You should be able to see the following page
 
-![RStudio Screen](/assets/images/First_screen.png)
+<figure>
+  <img src="../assets/images/First_screen.png" width="700"/>
+  </figure>
+  
+
 
 In red, you can find the console. Inside, we will write all the commands. They need to come after the ">" sign.
 
-![RStudio Screen2](/assets/images/Second_screen.png)
+
+<figure>
+  <img src="../assets/images/Second_screen.png" width="700"/>
+  </figure>
+  
+
 
 For best practice always open a new Rscript to write all your commands that you run in your console. This enables reproducibility and follows the FAIR rules (Findable, Accessible, Interoperable, and Reusable). For that press "File/New File/RScript". 
 
-![RStudio Screen3](/assets/images/Third_screen.png)
+
+<figure>
+  <img src="../assets/images/Third_screen.png" width="700"/>
+  </figure>
+  
+  
 
 You now have on the top left, the Untitled (try to save it!) file that you can later re-open when you want to come back to this script.
 
