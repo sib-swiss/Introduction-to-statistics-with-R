@@ -403,23 +403,12 @@ abline(h=c(2*2/23,3*2/23),lty=c(2,3),col=c("blue","red") ) # h for horizontal li
 
 Q5) Do there appear to be any influential points beyond the two horizontal lines?
 
-We can find measurements corresponding to the highest leverage points as follows, using R 'interactive' capabilities, write:
+Try to find the points with the highest leverage
 
-```r
-th.highlev <- identify(index,th.hat$hat)
-```
-
-and then click on the two highest points in the graphical window (they should be at index 4 and 13). 
-
-??? Warning
-
-    This may look like you did not do anything, but R registered the number of the points you have clicked on
-  
-
-When you are finished, return to the R console window and see which points they are:
-```r
-th.highlev # should be 4 , 13
-```
+??? done "Answer"
+    ```r
+    th.highlev <- c(4,13) # should be 4 , 13
+    ```
 
 We can get the glucose and velocity measurements for these points by typing
 ```r
@@ -462,7 +451,7 @@ Why do you think these points are the most influential?
     
     Q5)
     There are two points with a high influence (leverage)
-    They are obove the 2p/n but below the 3p/n line. Again, this is a reason of concern.
+    They are obove the 2p/n but below the 3p/n line. Again, this is a reason of concern. Probably because they have the highest Blood glucose and not enough points in the range 15-20.
     
     In summary, the data present evidence for a linear association of higher ventricular contraction velocity when blood glucose is higher, but with substantial unexplained variation in the model (explained variance by R squared below 0.2, test on coefficient for bg borderline to significance).
     Because the data suggest a relation, but no final conclusion can be strongly supported, the recommendation is to sample more observations. In particular the relation is not well estimated at higher values of bg, and more observations with bg > 13 would be useful.

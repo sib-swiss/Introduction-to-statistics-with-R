@@ -39,9 +39,45 @@ The purpose of this exercise is to introduce you to using R for statistical anal
 
 ### Preliminaries: Getting help in R
 
-An excellent source of R documentation is the Comprehensive R Archive Network, or CRAN. There is a Swiss mirror site at http://cran.ch.r-project.org/. If you go to that site, you will find several links under Documentation (the fourth major entry on the left side). "Official" documentation is available under Manuals; other helpful documentation is under Contributed. For additional practice, you can also download R and add-on packages onto your own computer at home if you have one.
 
-To proceed, you will need to start R. In Windows there should either be a desktop shortcut or you should find it in the Start menu; in Linux, just type R at the prompt.
+To proceed, you will need to start R. We asked you to install RStudio as this is an integrated development environment that makes it easy to write, debug, and visualize data analysis and statistical computing projects in R.
+
+You should be able to see the following page
+
+![RStudio Screen](/assets/images/First_screen.png)
+
+In red, you can find the console. Inside, we will write all the commands. They need to come after the ">" sign.
+
+![RStudio Screen2](/assets/images/Second_screen.png)
+
+For best practice always open a new Rscript to write all your commands that you run in your console. This enables reproducibility and follows the FAIR rules (Findable, Accessible, Interoperable, and Reusable). For that press "File/New File/RScript". 
+
+![RStudio Screen3](/assets/images/Third_screen.png)
+
+You now have on the top left, the Untitled (try to save it!) file that you can later re-open when you want to come back to this script.
+
+On the top right, you can find the environment, i.e. all the available objects. At the moment, this is empty. 
+
+
+
+Try to write the first command, just a calculation
+
+```r
+2+2
+```
+
+
+The # sign indicates a comment: anything occurring after this sign on a line is ignored by R (but can be very useful in programming at it provides a means for documenting your code). 
+
+??? Hint
+    Practice this throughout the course!
+    
+
+Therefore the following line gives exactly the same result as before. 
+
+```r
+2+2 # This is just a simple calculation 
+```
 
 You should become acquainted with the help facility within R, it can be your friend! The basic help command is
 
@@ -69,6 +105,8 @@ help.search()
 with the name of the concept inside double quotes within the parentheses.
 
 
+
+
 ### Getting Data into R
 
 R has a number of functions to create data vectors, including: c(), seq(), rep(). Find out what each of these do, and make some data vectors of your choice using each.
@@ -82,10 +120,6 @@ bmi <- weight / height^2
 bmi # Type this in R to see the computed values
 ```
 
-The # sign indicates a comment: anything occurring after this sign on a line is ignored by R (but can be very useful in programming at it provides a means for documenting your code). 
-
-??? Hint
-    Practice this throughout the course!
 
 These data vectors are a little too small to really require summaries. It is a little more interesting to look at real data.
 
@@ -305,9 +339,15 @@ Print the variable that you created to see if the test got significant by chance
   
 Repeat this with 100 or 1000 iterations. Change the value for the mean and test it.
 
+## Looking at students data
+
+Load the file students.csv into R. It contains data collected from students.
+
+Look at the variables; try to know/explore the data: summarize the different variables numerically and graphically, and see if you can find relationships between them.
+
 ## Quitting R 
 
-You will not need to save any R objects that you created today (unless you wish to), so feel free to 'clean up' after yourself with rm(). To remove all objects in your workspace (permanently and irreversibly, so be careful), type rm(list=ls()), or simply answer n when asked if you wish to save your workspace image. This question appears on the screen when you quit R; to quit, type
+You will not need to save any R objects that you created today (unless you wish to), so feel free to 'clean up' with rm(). To remove all objects in your workspace (permanently and irreversibly, so be careful), type rm(list=ls()), or simply answer n when asked if you wish to save your workspace image. This question appears on the screen when you quit R; to quit, type
 
   ```r
   q()
@@ -321,8 +361,4 @@ You will not need to save any R objects that you created today (unless you wish 
     ```
     without any parentheses. This might help you to remember that you need the parentheses!   
 
-## Looking at students data
 
-Load the file students.csv into R. It contains data collected from students.
-
-Look at the variables; try to know/explore the data: summarize the different variables numerically and graphically, and see if you can find relationships between them.

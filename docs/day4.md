@@ -1,6 +1,13 @@
-# Clustering and PCA
+# Clustering and Principal component analysis
 
-In this section, you will find the R code that we will use during the course. We will explain the code and output during correction of the exercises.
+## Learning outcomes of the day
+
+**After having completed this chapter you will be able to:**
+
+- Understand major clustering methods
+- Understand hierarchical clustering
+- Understand principal component analysis
+
 
 Slides of lectures:
 
