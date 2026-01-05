@@ -16,10 +16,61 @@ and the free version of [RStudio](https://www.rstudio.com/products/rstudio/downl
 
 ### Installation in R
 
-To ensure that the course runs smoothly check if you are **allowed to install packages into R**. Some companies block users to download packages for security reasons and an error saying : contact your administrator might appear. Make sure to discuss with the IT service of your company if you can, and if not contact us in order to be able to follow the course easily.
+After installing R and Rstudio, open the Rstudio (by double clicking on the logo). Then, to ensure that the course runs smoothly check if you are **allowed to install packages into R**. Some companies block users to download packages for security reasons and an error saying : contact your administrator might appear. Make sure to discuss with the IT service of your company if you can, and if not contact us in order to be able to follow the course easily.
 
 It might also happen that your antivirus blocks R from downloading packages.
 
 In order to check if all runs smoothly, try to download your first package from R Studio, you can go to the menu Tools -> Install packages?, and then choose the package you need installed (choose for example "ISwR"). Using the RGui under Windows, you can go to menu Packages -> Install package(s). In the console, you can use the install.packages command: install.packages("ISwR") for example. Once installed you can load the library, which should then not give you an error: library("ISwR").
 
 If there is any problem, contact us.
+
+Below, the code to download all the packages needed for the course.
+
+```r
+# Install BiocManager if not already installed
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
+
+# CRAN packages
+cran_packages <- c(
+  "ISwR",
+  "ggplot2",
+  "ggpubr",
+  "rstatix",
+  "faraway",
+  "tidyverse",
+  "circlize",
+  "alr3"
+)
+
+install.packages(cran_packages)
+
+# Bioconductor packages
+bioc_packages <- c(
+  "ComplexHeatmap",
+  "GEOquery",
+  "golubEsets"
+)
+
+BiocManager::install(bioc_packages)
+```
+
+Then check if all of them were installed properly
+
+```r
+# Load CRAN packages
+library(ISwR)
+library(ggplot2)
+library(ggpubr)
+library(rstatix)
+library(faraway)
+library(tidyverse)
+library(circlize)
+library(alr3)
+
+# Load Bioconductor packages
+library(ComplexHeatmap)
+library(GEOquery)
+library(golubEsets)
+```
