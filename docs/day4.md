@@ -310,8 +310,101 @@ par(mfrow = c(2, 3))
 for (v in c("Length", "Left", "Right", "Bottom", "Top", "Diagonal")) {   boxplot(banknote[, v] ~ banknote[, "Y"], xlab = "Banknote status", ylab = v) } 
 ```
 
+## Cholera Dataset
 
-## Points in plates
+In 1852, William Farr, published a report of the Registrar-General on mortality due to cholera in England in the years 1848-1849, during which there was a large epidemic throughout the country. Farr initially believed that cholera arose from bad air ("miasma") associated with low elevation above the River Thames. John Snow (1855) later showed that the disease was principally spread by contaminated water.
+
+This data set comes from a paper by Brigham et al. (2003) that analyses some tables from Farr's report to examine the prevalence of death from cholera in the districts of London in relation to the available predictors from Farr's table.
+
+First we ask you to load the dataset, which is part of the HistData package in R and load the cholera data set.
+
+```r
+library(HistData)
+library(ComplexHeatmap)
+library(circlize)
+library(dplyr)
+
+data("Cholera")
+```
+
+We then create a variable by selecting only the numerical values from the table (for instance dropping Region information) and scale this data, such that all variable have the same impact. 
+
+```r
+cholera_num <- Cholera[, sapply(Cholera, is.numeric)]
+cholera_num <- na.omit(cholera_num)
+
+# Scale numeric variables (important for k-means)
+cholera_scaled <- scale(cholera_num)
+```
+
+We will now use one of the popular clustering algorithm called kmeans, which is part of the partitioning clustering (and therefore gives us a cluster number to which each patient belongs to).
+
+```r
+# Run k-means with k = 3 clusters
+set.seed(123)
+km <- kmeans(cholera_scaled, centers = 3, nstart = 25)
+Cholera$cluster <- factor(km$cluster)
+```
+
+Make different trials how much does the clustering change if you change the nstarts or the number of iterations. What do you observe
+
+??? done "Answer"
+    ```r
+    km <- kmeans(cholera_scaled, centers = 3, nstart = 3)
+    Cholera$cluster3 <- factor(km$cluster)
+    km <- kmeans(cholera_scaled, centers = 3, iter.max = 10)
+    Cholera$clustermax10 <- factor(km$cluster)
+    km <- kmeans(cholera_scaled, centers = 3, iter.max=100)
+    Cholera$clustermax100 <- factor(km$cluster)
+    
+    table(Cholera$cluster,Cholera$cluster3)
+    table(Cholera$cluster,Cholera$clustermax10)
+    table(Cholera$cluster,Cholera$clustermax100)
+    table(Cholera$cluster100,Cholera$clustermax10)
+    ```
+
+Using the aggregate function in R try to understand the composition of the clusters 
+
+```r 
+aggregate(cholera_num, list(cluster = Cholera$cluster), mean)
+```
+
+Clearly cluster 3 (or maybe another one if you did not set the seed) has a higher cholera_drate than the others. One can then try to understand what it is linked to, by looking at a table with the "water" information
+
+```r 
+table(Cholera$cluster,Cholera$water)
+```
+
+We will now do a ComplexHeatmap to illustrate this clustering
+
+```r 
+row_ha <- rowAnnotation(
+Cluster = Cholera$cluster,
+Water = Cholera$water,
+col=   list(Cluster=c("1"="blue","2"="red","3"="orange"), Water=c("Battersea"="#AEC6CF","New River"= "#FFB7B2", "Kew"= 
+  "#B5EAD7")),  
+annotation_name_side = "top"
+    )
+
+
+ row_d <- dist(cholera_scaled)
+ row_clust <- hclust(row_d, method = "ward.D2")
+ 
+  Heatmap(
+        cholera_scaled,
+        name = "z-score",
+        cluster_rows = row_clust,
+        cluster_columns = TRUE,
+        show_row_names = TRUE,
+        left_annotation = row_ha
+   )
+```
+
+In conlusion, there seem to be a link between Cholera drate and the water supply of the people. 
+   
+ 
+## Points in plates (BONUS)
+
 1. Import the data from dataClustering.csv
 2. What is the dimension of this dataset?
 3. How many data point do we have?
