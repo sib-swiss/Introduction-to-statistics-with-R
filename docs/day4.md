@@ -11,7 +11,7 @@
 
 Slides of lectures:
 
-[Download slides](assets/pdf/Clustering.pdf){: .md-button }
+[Download slides](assets/pdf/Clustering_26.pdf){: .md-button }
 
 
 

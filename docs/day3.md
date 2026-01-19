@@ -15,8 +15,8 @@
 
 Slides of lectures:
 
-[Download slides morning](assets/pdf/Day3_corr_simple_reg_25.pdf){: .md-button }
-[Download slides afternoon](assets/pdf/Day3_multiple_reg_25.pdf){: .md-button }
+[Download slides morning](assets/pdf/Day3_corr_simple_reg_26.pdf){: .md-button }
+[Download slides afternoon](assets/pdf/Day3_multiple_reg_26.pdf){: .md-button }
 
 The purpose of these exercises is to introduce you to using R for modeling. Applications are the estimation of parameter values, the determination of variables that are associated with each other, for example the identification of important biological factors that affect a given outcome.
 

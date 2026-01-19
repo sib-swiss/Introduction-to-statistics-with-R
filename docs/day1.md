@@ -18,13 +18,13 @@
 In this section, you will find the R code that we will use during the course. We will explain the code and output during correction of the exercises.
 
 Slides of lectures:
-[Download slides Introduction Lecture](assets/pdf/Intro_IS25.pdf){: .md-button }
+[Download slides Introduction Lecture](assets/pdf/Intro_IS26.pdf){: .md-button }
 
-[Download slides Morning Lecture](assets/pdf/Exploratory data analysis_25.pdf){: .md-button }
+[Download slides Morning Lecture](assets/pdf/Exploratory data analysis-2026.pdf){: .md-button }
 
 [Download slides Help for first steps in R](assets/pdf/Data_analysis_with_R _25.pdf){: .md-button }
 
-[Download slides Afternoon Lecture](assets/pdf/Introduction_to_hypothesis_testing_25.pdf){: .md-button }
+[Download slides Afternoon Lecture](assets/pdf/Introduction_to_hypothesis_testing_26.pdf){: .md-button }
 
 Data for exercises:
 
