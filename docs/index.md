@@ -1,4 +1,5 @@
 # Introduction to Statistics and Data Visualisation with R
+
 ## Teachers
 Rachel Marcone
 
