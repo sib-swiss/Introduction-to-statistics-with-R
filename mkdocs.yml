@@ -1,4 +1,4 @@
-site_name: Introduction to statistics with R
+site_name: Introduction to Statistics and Data Visualisation with R
 nav:
     - Home: index.md
     - Precourse preparation: precourse.md
