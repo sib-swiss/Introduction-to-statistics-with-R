@@ -277,7 +277,7 @@ Compare the resulting plot to the previous two plots. What happens if you apply 
 
 ## Swiss banknote data 
 
-In this exercise we consider a data set containing measurements from 100 genuine Swiss banknotes and 100 counterfeit notes. For each banknote there are six measurements; the length of the bill, the width of the left and right edges, the widths of the bottom and top margin, and the length of the image diagonal. The data set is available in the R package alr3. 
+In this exercise we consider a data set containing measurements from 100 genuine Swiss banknotes and 100 counterfeit notes. For each banknote there are six measurements; the length of the bill, the width of the left and right edges, the widths of the bottom and top margin, and the length of the image diagonal. The data set is available in the R package alr3, that is now removed from CRAN, an archived version is still available. Check the precourse, on how to install that library. We also included the banknote as a txt file in the exercises folder 
 
 First, we load the data and look at the summary 
 ```r

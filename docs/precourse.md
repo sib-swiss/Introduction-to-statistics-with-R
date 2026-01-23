@@ -40,11 +40,16 @@ cran_packages <- c(
   "rstatix",
   "faraway",
   "tidyverse",
-  "circlize",
-  "alr3"
+  "circlize"
 )
 
 install.packages(cran_packages)
+
+#as this package was now removed from CRAN
+install.packages(
+  "https://cran.r-project.org/src/contrib/Archive/alr3/alr3_2.0.8.tar.gz",
+  repos = NULL, type = "source"
+)
 
 # Bioconductor packages
 bioc_packages <- c(
@@ -68,6 +73,8 @@ library(faraway)
 library(tidyverse)
 library(circlize)
 library(alr3)
+
+
 
 # Load Bioconductor packages
 library(ComplexHeatmap)
