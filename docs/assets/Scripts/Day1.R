@@ -1,10 +1,19 @@
 #-----------------
 #-----------------
 # Introduction to statistics with R
-# 2025
+# 2026
 # In Lausanne 
 #-----------------
 #-----------------
+
+help(pi) ## this is the help for pi 
+month.abb ## these are the months of the year
+x <- c(1,2,5,7) ## that would be a new vector x
+y <- seq(from=0,to=1,length= 17 )
+y 
+?rep #help of rep
+z <- rep(c(1,2),3)
+z <- rep(NA,1000)
 
 weight <- c(65,72,55,91,95,72) #this is the weight of our classroom people
 height <- c(1.73, 1.80, 1.62, 1.90, 1.78, 1.93)
@@ -15,7 +24,7 @@ bmi # Type this in R to see the computed values
 #-----------------
 # 1st exercise
 #-----------------
-
+#install.packages("ISwR" )
 library(ISwR)
 ?hellung
 data(hellung) 
@@ -67,13 +76,20 @@ ggplot(hellung, aes(x=log(conc), y=diameter,col=glucose)) + geom_point()
 
 hellung$glucose <- factor(hellung$glucose)
 
+ggplot(hellung, aes(x=log(conc), y=diameter,col=glucose)) + geom_point() 
+
 #-----------------
 #-----------------
 # 2nd exercise
 #-----------------
+
+data <- read.csv("~/Desktop/Introduction-to-statistics-with-R/docs/assets/exercises/data.csv")
+
 data <- read.csv("~/Desktop/Introduction-to-statistics-with-R/docs/assets/exercises/data.csv", header=FALSE)
 
 setwd("/Users/rachelmarcone/Desktop/Introduction-to-statistics-with-R/docs/assets/exercises/")
+list.files() ## list all the files in your current folder
+
 data <- read.csv("data.csv") 
 
 
@@ -81,7 +97,23 @@ data
 summary(data)
 sd(data[,1]); sd(data[,2]); sd(data[,3])
 attach(data)
+#ways to access the data1 column
+data$data1
+data[,1]
+data[,"data1"]
+
 datatoplot <- data[,1]
+
+colMeans(data)
+
+
+means <- as.vector(colMeans(data))  # means for the 3 datasets
+sds <- as.vector(sapply( data, sd))      # SDs for the 3 datasets
+# bp will contain the x coordinates of the three barplots
+# ylim is used to make sure that some space is left for the error bar
+bp <- barplot(means, ylim=1.1*range(0, means+sds), names.arg=c("Data1", "Data2", "Data3"))
+arrows(as.vector(bp), means, as.vector(bp), means+sds, angle=90, code=3)
+
 #pdf("datanumber1.pdf")
 ## Plot 4 rows of graphs on one plot
 par(mfrow=c(4,1))
@@ -147,19 +179,19 @@ arrows(mean(datatoplot)-sd(datatoplot), 0, mean(datatoplot)+sd(datatoplot), 0, a
 # 4th plot: boxplot
 boxplot(datatoplot, horizontal=TRUE, ylim=range(datatoplot))
 #dev.off()
-
+dev.off() ## removes all plotting that is currently running
 
 x <- rnorm(10000,mean=0, sd=1)
 hist(x)
 t.test(x,mu=0)$p.value
 
 
-s <- rep(0,100) # this is an empty vector with 10 entries
-for(i in 1:100){ # this is a loop, called a "for" loop, it will repeat 
+s <- rep(0,20) # this is an empty vector with 10 entries
+for(i in 1:20){ # this is a loop, called a "for" loop, it will repeat 
   # everything in parenthesis 10 times changing the variable
   # i from 1 to 10 at each iteration
-  x <- rnorm(10,mean=10, sd=1)
-  s[i] <- t.test(x,mu=10)$p.value # does a t.test then takes the p.value obtained and
+  x <- rnorm(10,mean=0, sd=1)
+  s[i] <- t.test(x,mu=0)$p.value # does a t.test then takes the p.value obtained and
   # puts it into the i-th entry of s
   
 }
