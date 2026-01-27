@@ -1,7 +1,7 @@
 #-----------------
 #-----------------
 # Introduction to statistics with R
-# January 2025
+# January 2026
 # In Lausanne 
 #-----------------
 #-----------------
@@ -12,7 +12,29 @@ library(ISwR)
 library(rstatix)
 library(tidyverse)
 
+## small parenthesis from yesterday
 
+hist(hellung$conc[hellung$glucose==1])
+
+shapiro.test(hellung$conc[hellung$glucose==1])
+ggqqplot(hellung$conc[hellung$glucose==1])
+
+hist(log(hellung$conc[hellung$glucose==1]))
+
+shapiro.test(log(hellung$conc[hellung$glucose==1]))
+ggqqplot(log(hellung$conc[hellung$glucose==1]))
+
+
+
+hist(hellung$conc[hellung$glucose==2])
+
+shapiro.test(hellung$conc[hellung$glucose==2])
+ggqqplot(hellung$conc[hellung$glucose==2])
+
+hist(log(hellung$conc[hellung$glucose==2]))
+
+shapiro.test(log(hellung$conc[hellung$glucose==2]))
+ggqqplot(log(hellung$conc[hellung$glucose==2]))
 
 #-----------------
 #-----------------
@@ -69,9 +91,17 @@ ind.lean <- which(energy$stature == "lean")
 shapiro_test(energy$expend[ind.obese]) 
 qqnorm(energy$expend[ind.obese])
 qqline(energy$expend[ind.obese])
+ggqqplot(energy[ind.obese,], "expend")
+
+
+
 shapiro_test(energy$expend[ind.lean])
 qqnorm(energy$expend[ind.lean])
 qqline(energy$expend[ind.lean])
+
+identify_outliers(as.data.frame(energy$expend[ind.lean]))
+identify_outliers(as.data.frame(energy$expend[ind.obese]))
+
 # assumption 2: the variances for the two independent groups are equal.
 
 levene_test(energy, expend~stature)
@@ -81,14 +111,18 @@ car::leveneTest(expend~stature, energy, center = "median")
 # t test
 
 t.test(energy$expend ~ energy$stature,var.equal=TRUE)
+t.test(energy$expend[ind.obese],energy$expend[ind.lean],var.equal=TRUE)
+t.test(expend~stature,data=energy,var.equal=TRUE) ## all three are equivalent
 
-t.test(energy$expend ~ energy$stature)
+t.test(energy$expend ~ energy$stature,var.equal=F)
 
-t.test(energy$expend[ind.obese],energy$expend[ind.lean])
-t.test(expend~stature,data=energy)
 
-ggqqplot(energy[ind.lean,], "expend")
-identify_outliers(as.data.frame(energy[ind.lean,"expend"]))
+ind.lean_without_extremes <- setdiff(ind.lean,c(6,8))
+
+ggqqplot(energy[ind.lean_without_extremes,], "expend")
+identify_outliers(as.data.frame(energy[ind.lean_without_extremes,"expend"]))
+
+t.test(energy$expend[ind.obese],energy$expend[ind.lean_without_extremes],var.equal=TRUE)
 
 #-----------------
 #-----------------
@@ -109,10 +143,15 @@ intake.diff <- intake$post - intake$pre
 #intake.diff.df <- as.data.frame(intake.diff)
 
 shapiro_test(intake.diff) 
+ggqqplot(intake.diff)
+
+identify_outliers(as.data.frame(intake.diff))
 
 # t test
 
-t.test(intake$pre, intake$post, paired = T)
+t.test(intake$post, intake$pre, paired = T)
+
+t.test(intake.diff,mu=0)
 
 
 
@@ -151,8 +190,8 @@ sim.p.t.test <- NULL
 sim.p.wilcox.test <- NULL
 
 for (i in 1:1000) {
-  KO <- runif(3, min=30, max=34)
-  WT <- runif(3, min=27, max=29)
+  KO <- rnorm(6,mean=29,sd=1)
+  WT <- rnorm(6, mean = 27,sd=2)
   KO <- as.data.frame(KO)
   names(KO) <- "weight"
   KO$genotype <- "KO"
@@ -190,7 +229,7 @@ sum(adj.BH < 0.05)
 #-----------------
 
 data(coagulation)
-
+?coagulation
 # check the data
 summary(coagulation)
 
@@ -200,7 +239,7 @@ get_summary_stats(group_by(coagulation,diet),coag, type = "mean_sd")
 coagulation %>% group_by(diet) %>% get_summary_stats(coag, type = "mean_sd") 
 
 boxplot(coagulation$coag ~ coagulation$diet)
-
+boxplot(data=coagulation,coag~diet)
 ggboxplot(coagulation, x="diet",y="coag",add="jitter")
 
 # check normality
@@ -223,12 +262,32 @@ car::leveneTest(coag~diet, coagulation, center = "median")
 
 # do anova
 anova_diet <- aov(coagulation$coag~coagulation$diet)
+anova_diet2 <- aov(data=coagulation,coag~diet)
 
 summary(anova_diet)
+
+## access to the p value is using 
+summary(anova_diet)[[1]][1,"Pr(>F)"]
 
 # check pairwise 
 
 TukeyHSD(anova_diet)
 
 pairwise.t.test(coagulation$coag,coagulation$diet,p.adj="bonf")
-pairwise.t.test(coagulation$coag,coagulation$diet,p.adj="BH")
+pairwise.t.test(coagulation$coag,coagulation$diet,p.adj="BH",var.equal=T)
+
+my_comparisons <- list(
+  c("A", "B"),
+  c("A", "C"),
+  c("A", "D"),
+  c("B", "D")
+  ,
+  c("B", "C")
+  ,
+  c("D", "C")
+)
+
+## The way to add it on the plot 
+
+ggboxplot(coagulation, x="diet",y="coag",add="jitter")+
+  stat_compare_means(comparison=my_comparisons,p.adjust.method="BH") ##
