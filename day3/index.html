@@ -1,0 +1,1124 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../day2/">
+      
+      
+        <link rel="next" href="../day4/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/SIB_logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Day 3 - Introduction to Statistics and Data Visualisation with R</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linear-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Introduction to Statistics and Data Visualisation with R" class="md-header__button md-logo" aria-label="Introduction to Statistics and Data Visualisation with R" data-md-component="logo">
+      
+  <img src="../assets/images/SIB_logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction to Statistics and Data Visualisation with R
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sib-swiss/Introduction-to-statistics-with-R" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/Introduction-to-statistics-with-R
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Introduction to Statistics and Data Visualisation with R" class="md-nav__button md-logo" aria-label="Introduction to Statistics and Data Visualisation with R" data-md-component="logo">
+      
+  <img src="../assets/images/SIB_logo.svg" alt="logo">
+
+    </a>
+    Introduction to Statistics and Data Visualisation with R
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sib-swiss/Introduction-to-statistics-with-R" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/Introduction-to-statistics-with-R
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../precourse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Precourse preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course_schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../day1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../day2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 3
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes-of-the-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning outcomes of the day
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise class
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anscombe-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anscombe data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-regressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linear regressions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thuesen-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thuesen data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expression-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expression data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-exercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus Exercice
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../day4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes-of-the-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning outcomes of the day
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Material
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise class
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anscombe-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anscombe data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-regressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linear regressions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thuesen-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thuesen data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expression-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expression data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-exercice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus Exercice
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="linear-models">Linear Models</h1>
+<h2 id="learning-outcomes-of-the-day">Learning outcomes of the day</h2>
+<p><strong>After having completed this chapter you will be able to:</strong></p>
+<ul>
+<li>Understand association between variables</li>
+<li>Understand correlation and how this is related to the scatterplot</li>
+<li>Understand simple and multiple regression </li>
+</ul>
+<h2 id="material">Material</h2>
+<p>Slides of lectures:</p>
+<p><a class="md-button" href="../assets/pdf/Day3_corr_simple_reg_26.pdf">Download slides morning</a>
+<a class="md-button" href="../assets/pdf/Day3_multiple_reg_26.pdf">Download slides afternoon</a></p>
+<p>The purpose of these exercises is to introduce you to using R for modeling. Applications are the estimation of parameter values, the determination of variables that are associated with each other, for example the identification of important biological factors that affect a given outcome.</p>
+<h2 id="exercise-class">Exercise class</h2>
+<p>Go to the right directory and load the file class.csv</p>
+<div class="highlight"><pre><span></span><code><span class="n">class</span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;class.csv&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>inspect the data</p>
+<div class="highlight"><pre><span></span><code><span class="nf">dim</span><span class="p">(</span><span class="n">class</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">class</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">class</span><span class="p">[,</span><span class="m">-1</span><span class="p">])</span>
+</code></pre></div>
+<p>Problem the data set does not have column of Gender as a factor
+<div class="highlight"><pre><span></span><code><span class="n">class</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">class</span><span class="p">)</span>
+<span class="n">class</span><span class="o">$</span><span class="n">Gender</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.factor</span><span class="p">(</span><span class="n">class</span><span class="o">$</span><span class="n">Gender</span><span class="p">)</span>
+</code></pre></div></p>
+<p>inspect the pairs of variables on 2by2plots
+<div class="highlight"><pre><span></span><code><span class="nf">pairs</span><span class="p">(</span><span class="n">class</span><span class="p">[,</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">)])</span>
+</code></pre></div></p>
+<p>Investigating Height ~ Age without the attach function</p>
+<div class="highlight"><pre><span></span><code><span class="n">Height2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">class</span><span class="o">$</span><span class="n">Height</span>
+<span class="n">Age2</span><span class="o">&lt;-</span><span class="w"> </span><span class="n">class</span><span class="o">$</span><span class="n">Age</span><span class="w"> </span>
+<span class="nf">lm</span><span class="p">(</span><span class="w"> </span><span class="n">Height2</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Age2</span><span class="p">)</span>
+</code></pre></div>
+<p>or using the data slot </p>
+<div class="highlight"><pre><span></span><code><span class="nf">lm</span><span class="p">(</span><span class="w"> </span><span class="n">Height</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Age</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="n">class</span><span class="p">)</span><span class="w"> </span>
+<span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="w"> </span><span class="n">Height</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Age</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="n">class</span><span class="p">)</span><span class="w"> </span>
+<span class="n">model</span>
+</code></pre></div>
+<p>plot the age vs Height and add the fitted line with abline
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="w"> </span><span class="n">class</span><span class="o">$</span><span class="n">Age</span><span class="p">,</span><span class="w"> </span><span class="n">class</span><span class="o">$</span><span class="n">Height</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+</code></pre></div></p>
+<p>change the range of xaxis and yaxis in order to visually see the intersept
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">class</span><span class="o">$</span><span class="n">Age</span><span class="p">,</span><span class="w"> </span><span class="n">class</span><span class="o">$</span><span class="n">Height</span><span class="p">,</span><span class="w"> </span>
+<span class="w">      </span><span class="n">xlim</span><span class="o">=</span><span class="nf">range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">class</span><span class="o">$</span><span class="n">Age</span><span class="p">),</span><span class="w"> </span>
+<span class="w">      </span><span class="n">ylim</span><span class="o">=</span><span class="nf">range</span><span class="p">(</span><span class="nf">coef</span><span class="p">(</span><span class="n">model</span><span class="p">)[</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">class</span><span class="o">$</span><span class="n">Height</span><span class="p">))</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Do a summary of the linear model to see the residuals the degrees of freedom and the p-values estimated
+<div class="highlight"><pre><span></span><code><span class="nf">summary</span><span class="p">(</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="w"> </span><span class="n">Height</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Age</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="anscombe-data">Anscombe data</h2>
+<p>We will start by exploring the classic Anscombe example data set which comes with R. You will soon see why it is &lsquo;instructive&rsquo;. It has been created for the didactic purpose to make people analysing data aware of the fact that while correlation is very convenient and useful, one should know certain limitations. This analysis will demonstrate the importance of examining scatterplots as part of data analysis. First we load the data.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">data</span><span class="p">(</span><span class="n">anscombe</span><span class="p">)</span>
+</code></pre></div>
+<p>This is a small dataset, so we can look at the whole data. For large datasets we would just look at the dimension (dim) of the data frame and at a few lines, here [1:3, ] selects the first three rows (and all their columns). Then we get some summary information for the 8 columns (four X,Y pairs), the summary function automatically executes on each column and returns the mean and the &ldquo;five numbers summary&rdquo; (minimum, maximum, 1st 2nd and 3rd quartile, the 2nd is the median) Similarly, we make the boxplots, for a graphical visualization.</p>
+<div class="highlight"><pre><span></span><code><span class="n">anscombe</span>
+<span class="nf">dim</span><span class="p">(</span><span class="n">anscombe</span><span class="p">)</span>
+<span class="n">anscombe</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="p">]</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">anscombe</span><span class="p">)</span>
+<span class="nf">boxplot</span><span class="p">(</span><span class="n">anscombe</span><span class="p">)</span>
+</code></pre></div>
+<p>Question Q1:
+What do you notice about the summary statistics?
+(Example answer given later)</p>
+<p>Now, we &ldquo;attach&rdquo; the data, we can then use the variable names used in the data (the names of the columns) directly in the R console window.
+<div class="highlight"><pre><span></span><code><span class="nf">attach</span><span class="p">(</span><span class="n">anscombe</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Computing correlations; Correlations and scatterplots
+This data set consists of four pairs of X,Y data: x1 and y1 go together, etc. Find the correlation coefficient for each of the four sets. You can either do this for each pair separately by hand, e.g.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">cor</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span>
+<span class="nf">cor</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span>
+<span class="nf">cor</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span><span class="n">y3</span><span class="p">)</span>
+<span class="nf">cor</span><span class="p">(</span><span class="n">x4</span><span class="p">,</span><span class="n">y4</span><span class="p">)</span>
+</code></pre></div>
+<p>etc., or all at once (cor applies to all pairwise combinations of columns), and the result of cor is given to the function round specifying that we want rounding to 3 decimal places.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">round</span><span class="p">(</span><span class="nf">cor</span><span class="p">(</span><span class="n">anscombe</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">digits</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+</code></pre></div>
+<p>Anything interesting here? Guess what the four scatterplots will look like....</p>
+<p>Done guessing? :)</p>
+<p>OK, now for the test - go ahead and make the four scatterplots. The first command subdivides the graphical window into 2x2 panels, each with a square plotting region.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="n">pty</span><span class="o">=</span><span class="s">&quot;s&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span><span class="n">y3</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x4</span><span class="p">,</span><span class="n">y4</span><span class="p">)</span>
+</code></pre></div>
+<p>Were you right? Are you surprised??</p>
+<h2 id="linear-regressions">Linear regressions</h2>
+<p>We can add regression lines (abline plots straight lines) and a title to the plots as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y1</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x1</span><span class="p">))</span>
+<span class="nf">title</span><span class="p">(</span><span class="s">&quot;Plot 1&quot;</span><span class="p">)</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y2</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x2</span><span class="p">))</span>
+<span class="nf">title</span><span class="p">(</span><span class="s">&quot;Plot 2&quot;</span><span class="p">)</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span><span class="n">y3</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y3</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x3</span><span class="p">))</span>
+<span class="nf">title</span><span class="p">(</span><span class="s">&quot;Plot 3&quot;</span><span class="p">)</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">x4</span><span class="p">,</span><span class="n">y4</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y4</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x4</span><span class="p">))</span>
+<span class="nf">title</span><span class="p">(</span><span class="s">&quot;Plot 4&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Moral of the story: there is only one way to tell what the scatterplot will look like: you have to look at it! Even the results of the statistical estimation of intercept and slope, based on assumed normal distribution of the residuals, can be misleading.</p>
+<p>Question Q2: Which of the data correspond to which of the four comments?:
+A) One single point drives the correlation to a higher value
+B) One single point drives the correlation to a lower value
+C) A case where the straight line seems the appropriate model
+D) The graph departs from a straight line, shows curvature, the straight line seems unsuitable in the sense that a better model exists.</p>
+<p>What do you expect for the estimation of the slopes? Will the P values and the confidence intervals be comparable? The summary function applied to the object returnd by lm</p>
+<div class="highlight"><pre><span></span><code><span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y1</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x1</span><span class="p">))</span>
+<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y2</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x2</span><span class="p">))</span>
+<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y3</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x3</span><span class="p">))</span>
+<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y4</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x4</span><span class="p">))</span>
+</code></pre></div>
+<p>Here one could compute hat values to see if they can identify points with a high influence on the estimates. But this is planned already for another example.</p>
+<p>Question Q3: Can you find a more appropriate model for (x2,y2) ?</p>
+<details class="done">
+<summary>Don&rsquo;t open this before having tried to answer</summary>
+<p>Solution to Questions:
+Q1:
+With the exception of x4, the x columns have almost identical numerical summaries, and so have the y columns.</p>
+<p>Q2:
+Pairs Description-Plot:
+A-4,
+B-3,
+C-1,
+D-2</p>
+<p>The first plot seems to be distributed normally, and corresponds to what one would expect when considering two variables correlated and following the assumption of normality.
+The second one is not distributed normally; while an obvious relationship between the two variables can be observed, it is not linear, and the Pearson correlation coefficient is not relevant.
+In the third case, the linear relationship is perfect, except for one outlier which exerts enough influence to lower the correlation coefficient from 1 to 0.81.
+Finally, the fourth example shows another example when one outlier is enough to produce a high correlation coefficient, even though the relationship between the two variables is not linear.</p>
+<p>Q3:
+The graph resembles that of a quadratic function. We can use a polynomial including both x and x^2:
+<div class="highlight"><pre><span></span><code><span class="n">z2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x2</span><span class="o">^</span><span class="m">2</span>
+<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y2</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z2</span><span class="w"> </span><span class="p">))</span>
+</code></pre></div></p>
+<p>The summary shows that the results of these models fit better to the given points.</p>
+<p>You cannot use the abline function to plot the resulting curve on the plot, as it is not a straight line anymore. However, you can use the curve function, using the three coefficients returned by the summary:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">)</span>
+<span class="nf">curve</span><span class="p">(</span><span class="w"> </span><span class="m">-5.99+2.78</span><span class="o">*</span><span class="n">x</span><span class="m">-0.127</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div>
+<p>Alternatively, you can extract the coefficients directly:</p>
+<div class="highlight"><pre><span></span><code><span class="n">coefs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">coef</span><span class="p">(</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y2</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z2</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">curve</span><span class="p">(</span><span class="w"> </span><span class="n">coefs</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">coefs</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">coefs</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h2 id="thuesen-data">Thuesen data</h2>
+<p>Exploring bivariate data
+We will use the &lsquo;Thuesen&rsquo; data (L. Thuesen, Diabetologica 1985) contained in the ISwR package. (book &ldquo;Introductory Statistics with R&rdquo; by P. Dalgaard).
+This data set contains fasting blood glucose concentration (mmol/l, normal range 4-6 mM, except shortly after eating) and mean circumferential shortening velocity of the left ventriculum (percentages of circumference / s, average in the healthy control group was 0.85) measured for 24 (type 1-) diabetic patients. Both variables are numeric, continuous.</p>
+<p>Diabetes is considered a proven a risk factor for heart disease. The glucose concentration is increased and the degree of increase is an indicator of how well the person is managing to control it (&lsquo;metabolic control&rsquo;), for example by controlling sugar uptake.
+The shortening velocity is an indicator of cardiac function. It is increased in diabetic persons and believed to be a risk factor for heart valve function impairment.</p>
+<p>A question of interest here is if better metabolic control - as shown by lower (more normal) blood glucose level - is associated with lower (more normal) shortening velocity. The interest was in testing, if there is a relation between these two physiologial quantities. If so, it would suggest that a diabetic person that can keep its glucose low might have less risk of suffering later from heart diseases.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">ISwR</span><span class="p">)</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">thuesen</span><span class="p">)</span>
+</code></pre></div>
+<p>We can start by looking at the data: (You would not want to do this for very large data sets!)</p>
+<div class="highlight"><pre><span></span><code><span class="n">thuesen</span>
+</code></pre></div>
+<p>There are several ways to access the individual variables in thuesen:</p>
+<ol>
+<li>We could use the $ operator: &lsquo;name of the data - $ - name of the variable&rsquo;:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">thuesen</span><span class="o">$</span><span class="n">short.velocity</span>
+<span class="n">thuesen</span><span class="o">$</span><span class="n">blood.glucose</span>
+</code></pre></div>
+<ol start="2">
+<li>Or we could use the subset operator [ to select individual columns by name or by position:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">thuesen</span><span class="p">[,</span><span class="s">&quot;blood.glucose&quot;</span><span class="p">]</span>
+<span class="n">thuesen</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span>
+</code></pre></div>
+<ol start="3">
+<li>Or we could attach the data and just refer to the variables by their names:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nf">attach</span><span class="p">(</span><span class="n">thuesen</span><span class="p">)</span>
+<span class="n">short.velocity</span>
+<span class="n">blood.glucose</span>
+</code></pre></div>
+<ol start="4">
+<li>This is still a lot of typing! We could assign the variables to new ones with shorter names:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">sv</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">thuesen</span><span class="o">$</span><span class="n">short.velocity</span>
+<span class="n">bg</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">thuesen</span><span class="o">$</span><span class="n">blood.glucose</span>
+</code></pre></div>
+<p>Get some univariate summaries
+<div class="highlight"><pre><span></span><code><span class="nf">summary</span><span class="p">(</span><span class="n">thuesen</span><span class="p">)</span>
+</code></pre></div></p>
+<p>If you are interested in knowing just the means, you can use the function colMeans(thuesen).</p>
+<p>You might have noticed that one of the observations was &lsquo;NA&rsquo; (i.e. Not Available). In case you did not notice this, it will be signaled to you if you use certain functions on the data (e.g. mean, sd). You must specify that you want the observations with NA values removed:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">colMeans</span><span class="p">(</span><span class="n">thuesen</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div>
+<p>Look at a bivariate summary
+If you type:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">cor</span><span class="p">(</span><span class="n">thuesen</span><span class="p">)</span>
+</code></pre></div>
+<p>you will get an error: Error in cor(thuesen) : missing observations in cov/cor. [You will have seen a similar message above when calculating the means.] This is because of the missing value. We can learn which argument to set in cor to decide how to handle the missing values, by using the help facility &lsquo;?&rsquo; to ask for the documentation for this function. Here we use the &lsquo;use&rsquo; argument to exclude those observations that have one or more missing values from the calculation of the correlation.</p>
+<div class="highlight"><pre><span></span><code><span class="o">?</span><span class="n">cor</span>
+<span class="nf">round</span><span class="p">(</span><span class="w"> </span><span class="nf">cor</span><span class="p">(</span><span class="n">thuesen</span><span class="p">,</span><span class="w"> </span><span class="n">use</span><span class="o">=</span><span class="s">&quot;complete.obs&quot;</span><span class="p">),</span><span class="w"> </span><span class="m">4</span><span class="p">)</span>
+</code></pre></div>
+<p>Q1) What is the correlation between blood glucose and shortening velocity?
+What do you think the scatter plot will look like? Well, we just learned that the only way to know is to look!</p>
+<p>Look at the scatter plot
+We will be interested in predicting shortening velocity from blood glucose, so our Y variable is sv and X variable is bg:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">bg</span><span class="p">,</span><span class="w"> </span><span class="n">sv</span><span class="p">)</span>
+</code></pre></div>
+<p>We can enhance the plot in a number of ways, for example changing the plotting character (pch), adding different axis labels (xlab, ylab):
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">bg</span><span class="p">,</span><span class="w"> </span><span class="n">sv</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Blood Glucose&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Shortening Velocity&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Finding the Regression Line
+Use lm to estimate the regression line from the data:</p>
+<div class="highlight"><pre><span></span><code><span class="n">th.lm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">sv</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">bg</span><span class="p">)</span>
+</code></pre></div>
+<p>We can get enough information to write out the regression line from:</p>
+<div class="highlight"><pre><span></span><code><span class="n">th.lm</span>
+</code></pre></div>
+<p>However, we will see a more comprehensive summary using &lsquo;summary&rsquo; :
+<div class="highlight"><pre><span></span><code><span class="nf">summary</span><span class="p">(</span><span class="n">th.lm</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Q2) Using this information, write out a formula for the regression line.
+Are any coefficients significant at the 5% level? (could you estimate a 95% confidence interval?) Is sv predicted to be lower when bg is lower, or not?</p>
+<p>We can add the regression line to the scatter plot:
+<div class="highlight"><pre><span></span><code><span class="nf">abline</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">sv</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">bg</span><span class="p">))</span>
+</code></pre></div></p>
+<p>Exploring Model Fit
+To explore the fit of the model, we should examine the residuals more carefully. First, extract the residuals from th.lm using the &lsquo;extractor&rsquo; resid function:</p>
+<div class="highlight"><pre><span></span><code><span class="n">th.resid</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">resid</span><span class="p">(</span><span class="n">th.lm</span><span class="p">)</span>
+</code></pre></div>
+<p>Normality
+First, extract the residuals from th.lm. We eliminate the observations with missing values for sv (using is.na(sv)) and the &lsquo;not&rsquo; operator &lsquo;!&rsquo;. Then we produce QQ plots for the residuals.</p>
+<div class="highlight"><pre><span></span><code><span class="n">bg.1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">bg</span><span class="p">[</span><span class="o">!</span><span class="w"> </span><span class="nf">is.na</span><span class="p">(</span><span class="n">sv</span><span class="p">)]</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">bg.1</span><span class="p">,</span><span class="n">th.resid</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
+
+<span class="nf">qqnorm</span><span class="p">(</span><span class="n">th.resid</span><span class="p">)</span>
+<span class="nf">qqline</span><span class="p">(</span><span class="n">th.resid</span><span class="p">)</span>
+</code></pre></div>
+<p>Q3) Are any points off the line to indicate departure from a normal distribution?</p>
+<p>Constant variance
+We check this assumption by plotting the residuals against the fitted values that we obtain by applying the function of this name to the lm object.
+<div class="highlight"><pre><span></span><code><span class="n">th.fv</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">fitted.values</span><span class="p">(</span><span class="n">th.lm</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">th.fv</span><span class="p">,</span><span class="w"> </span><span class="n">th.resid</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Q4) Does the variance of the residuals seem roughly constant across the range of x?
+If not, what pattern do you see?</p>
+<p>Influential points
+Here we compute the &lsquo;hat&rsquo; values (function lm.influence, variable hat in the object returned) We want to compare the hat values to 2p/n or 3p/n, where p is the dimension of the model space (2 here). Values bigger than this may be considered &lsquo;influential&rsquo;. Note the use of &lsquo;#&rsquo;, this symbol and the rest of the line are ignored by R. It is useful to add small comments to our R code (and to keep this together in a protocol file).</p>
+<div class="highlight"><pre><span></span><code><span class="n">th.hat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm.influence</span><span class="p">(</span><span class="n">th.lm</span><span class="p">)</span>
+<span class="nf">sort</span><span class="p">(</span><span class="n">th.hat</span><span class="o">$</span><span class="n">hat</span><span class="p">)</span><span class="w"> </span><span class="c1"># look at the sorted values</span>
+<span class="n">index</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">th.hat</span><span class="o">$</span><span class="n">hat</span><span class="p">))</span><span class="w"> </span><span class="c1"># integers 1 .. number of points</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="n">th.hat</span><span class="o">$</span><span class="n">hat</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Index&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;Hat value&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0.3</span><span class="p">))</span><span class="w"> </span><span class="c1"># ylim sets the range of the y-xis</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="o">*</span><span class="m">2</span><span class="o">/</span><span class="m">23</span><span class="p">,</span><span class="m">3</span><span class="o">*</span><span class="m">2</span><span class="o">/</span><span class="m">23</span><span class="p">),</span><span class="n">lty</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span><span class="n">col</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="s">&quot;red&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="c1"># h for horizontal lines, here two specified together</span>
+</code></pre></div>
+<p>Q5) Do there appear to be any influential points beyond the two horizontal lines?</p>
+<p>Try to find the points with the highest leverage</p>
+<details class="done">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="n">th.highlev</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">13</span><span class="p">)</span><span class="w"> </span><span class="c1"># should be 4 , 13</span>
+</code></pre></div>
+</details>
+<p>We can get the glucose and velocity measurements for these points by typing
+<div class="highlight"><pre><span></span><code><span class="n">thuesen</span><span class="p">[</span><span class="n">th.highlev</span><span class="p">,]</span>
+</code></pre></div></p>
+<p>Let&rsquo;s see where these points are on the original scatter plot. We&rsquo;ll plot these points as large (scale &lsquo;cex=2&rsquo;) blue dots:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">bg</span><span class="p">,</span><span class="w"> </span><span class="n">sv</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Blood Glucose&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Shortening Velocity&quot;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">sv</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">bg</span><span class="p">))</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">bg</span><span class="p">[</span><span class="n">th.highlev</span><span class="p">],</span><span class="n">sv</span><span class="p">[</span><span class="n">th.highlev</span><span class="p">],</span><span class="n">pch</span><span class="o">=</span><span class="m">16</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="n">cex</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+</code></pre></div>
+<p>Why do you think these points are the most influential?</p>
+<details class="done">
+<summary>Don&rsquo;t open before having tried to answer</summary>
+<p>Q1)
+cor r = 0.4168</p>
+<p>Q2) The results indicate high significance for a test of the hypothesis &lsquo;intercept = 0&rsquo; and are just barely significant for a test on the &lsquo;coefficient = 0&rsquo; for bg. An association between bg and sv can be assumed given these data, but the evidence is not overwhelming strong and caution in interpretation is required, especially if there might be doubts as to the correctness of the model assumption being made.
+regression line: sv = 1.09781 + 0.02196 * bg
+predicts on average an increase of sv with bg
+Estimated 95% CI for the coefficients of bg:
+Half-width: 1.96 * 0.01045 = 0.0205 (using the 1.96 from the normal distribution)
+CI: 0.0222 +/- 0.0205 = 0.0017, 0.0427
+Half-width: 2.08 * 0.01045 = 0.0217 (using the t distribution with 21 degrees of freedom)
+CI: 0.0222 +/- 0.0217 = 0.0005, 0.0439
+The slope coefficient is significant in the hypothesis test agains slope=0, but the confidence intervals include values very close to 0. While it is predicted that lower bg is associated with lover sv, how strong this effect is remains relatively unclear.</p>
+<p>Q3)
+The five points on the right hand side are fairly far from the straight line and suggest a departure from normal distribution that is important enough to be cautious about drawing definitive conclusions.</p>
+<p>Q4)
+The variance seems roughly constant, but a bit higher on the right hand side for the larger fitted values. There can be a bit of concern about model validity.</p>
+<p>Q5)
+There are two points with a high influence (leverage)
+They are obove the 2p/n but below the 3p/n line. Again, this is a reason of concern. Probably because they have the highest Blood glucose and not enough points in the range 15-20.</p>
+<p>In summary, the data present evidence for a linear association of higher ventricular contraction velocity when blood glucose is higher, but with substantial unexplained variation in the model (explained variance by R squared below 0.2, test on coefficient for bg borderline to significance).
+Because the data suggest a relation, but no final conclusion can be strongly supported, the recommendation is to sample more observations. In particular the relation is not well estimated at higher values of bg, and more observations with bg &gt; 13 would be useful.</p>
+</details>
+<h2 id="expression-data">Expression data</h2>
+<p>We are going to use data from a breast cancer study, described in the paper by C. Sotiriou et al, &ldquo;Gene expression profiling in breast cancer: understanding the molecular basis of histological grade to improve prognosis&rdquo;, J Natl Cancer Inst (2006 Feb 15;98(4):262-72). File expression-esr1.csv contains microarray data for 20 different patients and 9 different probes. The 9 probes interrogate the same gene, ESR1 (Estrogen Receptor). The expression data is log transformed. File clindata.csv contains clinical data about these 20 patients. In particular, the &ldquo;er&rdquo; column indicates whether the tumour was identified (using immunohistochemistry) as expression an estrogen receptor. In theory, this information at the protein level should match the information obtained from RNA: an er value of 1 should correspond to a high expression value for gene ESR1, while a value of 0 should correspond to a low value. Answer the following questions (using statistical and graphical arguments).</p>
+<p>Do the 9 probes give similar results, or can you identify one or several clusters of probes that give similar results ?
+Do the probes give similar results than those obtained by immunohistochemistry ? What is the probe that is most closely associated with the immunihistochemistry data ?
+You can use the cor() command on a table of variables and which will calculate all pairwise correlations; the pairs() command will create the related graphics.</p>
+<details class="done">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="c1">##open it and look at it </span>
+<span class="n">clin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;clindata.csv&quot;</span><span class="p">)</span>
+<span class="n">expr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;expression-esr1.csv&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">clin</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">clin</span><span class="p">)</span>
+<span class="n">clin</span><span class="o">$</span><span class="n">er</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.factor</span><span class="p">(</span><span class="n">clin</span><span class="o">$</span><span class="n">er</span><span class="p">)</span>
+<span class="n">clin</span><span class="o">$</span><span class="n">treatment</span><span class="w">  </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.factor</span><span class="p">(</span><span class="n">clin</span><span class="o">$</span><span class="n">treatment</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">clin</span><span class="p">)</span><span class="o">&lt;-</span><span class="n">clin</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">clin</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+<span class="nf">dim</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">##check all the correlation (Pearson) and see which one correspond</span>
+<span class="nf">cor</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+
+<span class="c1">##for loop to see all the correlations with ER status</span>
+<span class="kr">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">9</span><span class="p">){</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">cor</span><span class="p">(</span><span class="n">expr</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">clin</span><span class="p">[</span><span class="nf">rownames</span><span class="p">(</span><span class="n">expr</span><span class="p">),</span><span class="s">&quot;er&quot;</span><span class="p">]),</span><span class="n">method</span><span class="o">=</span><span class="s">&quot;spearman&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">### put them in a variable</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span>
+<span class="w">    </span><span class="kr">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">9</span><span class="p">){</span>
+<span class="w">    </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="nf">cor</span><span class="p">(</span><span class="n">expr</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">clin</span><span class="p">[</span><span class="nf">rownames</span><span class="p">(</span><span class="n">expr</span><span class="p">),</span><span class="s">&quot;er&quot;</span><span class="p">]),</span><span class="n">method</span><span class="o">=</span><span class="s">&quot;spearman&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nf">head</span><span class="p">(</span><span class="n">clin</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">### do some boxplots</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">clin</span><span class="o">$</span><span class="n">er</span><span class="p">,</span><span class="n">expr</span><span class="p">[,</span><span class="m">1</span><span class="p">])</span>
+</code></pre></div>
+</details>
+<h2 id="bonus-exercice">Bonus Exercice</h2>
+<p>Already done ? You can have a look at the advanced topics with more exercises and interesting subjects <a href="https://sib-swiss.github.io/Introduction-to-statistics-with-R/day4/">here.</a> </p>
+<p>Or try to understand the multiple regression with categorical variables and interaction between them.</p>
+<p>For that have a look at the chapter <a href="https://genomicsclass.github.io/book/pages/interactions_and_contrasts.html">Interactions</a> in the book from the genomics class&rsquo; github 
+<a href="http://genomicsclass.github.io/book/">http://genomicsclass.github.io/book/</a></p>
+<p>The data comes from <a href="https://www.jstor.org/stable/48576004">this paper</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": "content.code.copy", "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

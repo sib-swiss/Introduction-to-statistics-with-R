@@ -1,0 +1,1205 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../day3/">
+      
+      
+        <link rel="next" href="../exam/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/SIB_logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Day 4 - Introduction to Statistics and Data Visualisation with R</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#clustering-and-principal-component-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Introduction to Statistics and Data Visualisation with R" class="md-header__button md-logo" aria-label="Introduction to Statistics and Data Visualisation with R" data-md-component="logo">
+      
+  <img src="../assets/images/SIB_logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction to Statistics and Data Visualisation with R
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sib-swiss/Introduction-to-statistics-with-R" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/Introduction-to-statistics-with-R
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Introduction to Statistics and Data Visualisation with R" class="md-nav__button md-logo" aria-label="Introduction to Statistics and Data Visualisation with R" data-md-component="logo">
+      
+  <img src="../assets/images/SIB_logo.svg" alt="logo">
+
+    </a>
+    Introduction to Statistics and Data Visualisation with R
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sib-swiss/Introduction-to-statistics-with-R" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/Introduction-to-statistics-with-R
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../precourse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Precourse preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course_schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course schedule
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../day1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../day2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../day3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 4
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes-of-the-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning outcomes of the day
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-iris-data-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Iris data set
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dengue-fever-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dengue fever example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dengue fever example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data retrieval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principal-component-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principal component analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#golub-leukemia-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Golub leukemia data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swiss-banknote-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swiss banknote data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cholera-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cholera Dataset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-in-plates-bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points in plates (BONUS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-outcomes-of-the-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning outcomes of the day
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-iris-data-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Iris data set
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dengue-fever-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dengue fever example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dengue fever example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data retrieval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principal-component-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principal component analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#golub-leukemia-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Golub leukemia data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swiss-banknote-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swiss banknote data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cholera-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cholera Dataset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-in-plates-bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points in plates (BONUS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="clustering-and-principal-component-analysis">Clustering and Principal component analysis</h1>
+<h2 id="learning-outcomes-of-the-day">Learning outcomes of the day</h2>
+<p><strong>After having completed this chapter you will be able to:</strong></p>
+<ul>
+<li>Understand major clustering methods</li>
+<li>Understand hierarchical clustering</li>
+<li>Understand principal component analysis</li>
+</ul>
+<p>Slides of lectures:</p>
+<p><a class="md-button" href="../assets/pdf/Clustering_26.pdf">Download slides</a></p>
+<h2 id="the-iris-data-set">The Iris data set</h2>
+<p>We will study the iris data set, containing measurements of the petal length and width and the sepal length and width for 150 iris flowers of three different types. The data set is available within R. First, we load the data, display its structure and summarize its content. </p>
+<div class="highlight"><pre><span></span><code><span class="nf">data</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">str</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">head</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>Are the range of values for the individual variables comparable? </p>
+<p>What is the dimensionality of the data (the number of coordinates used to represent the samples)? </p>
+<p>Next, we create univariate plots to visualize the variables individually or pairwise. 
+<div class="highlight"><pre><span></span><code><span class="nf">boxplot</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">])</span><span class="w"> </span>
+<span class="nf">pairs</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div></p>
+<p>What do the colors represent? Are there any apparent associations between the variables? </p>
+<p>We can also create boxplots of the individual variables stratified by iris type. 
+<div class="highlight"><pre><span></span><code><span class="nf">boxplot</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Petal.Width</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div></p>
+<p>We can also use hierarchical clustering and the library ComplexHeatmap to generate complex and nice plots. Look up the help, there you can browse through all possible ways to increase the look of the heatmap. </p>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">ComplexHeatmap</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">circlize</span><span class="p">)</span>
+<span class="n">col_fun</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">colorRamp2</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">))</span>
+
+<span class="n">species_annot</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">HeatmapAnnotation</span><span class="p">(</span>
+<span class="w">  </span><span class="n">Species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span>
+<span class="w">  </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">Species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span>
+<span class="w">    </span><span class="n">setosa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gold&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">versicolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lightgreen&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">virginica</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lightblue&quot;</span>
+<span class="w">  </span><span class="p">)),</span>
+<span class="w">  </span><span class="n">annotation_name_side</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;left&quot;</span>
+<span class="p">)</span>
+
+<span class="nf">Heatmap</span><span class="p">(</span>
+<span class="w">  </span><span class="nf">t</span><span class="p">(</span><span class="nf">scale</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="w"> </span><span class="m">-5</span><span class="p">])),</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Scaled value&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">top_annotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">species_annot</span><span class="p">,</span>
+<span class="w">  </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">col_fun</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Find which parameters define the method for the hierarchical clustering and change the default behavior.</p>
+<details class="answer">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="nf">Heatmap</span><span class="p">(</span>
+<span class="nf">t</span><span class="p">(</span><span class="nf">scale</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="w"> </span><span class="m">-5</span><span class="p">])),</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Scaled value&quot;</span><span class="p">,</span>
+<span class="n">top_annotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">species_annot</span><span class="p">,</span>
+<span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">col_fun</span><span class="p">,</span>
+<span class="n">clustering_method_columns</span><span class="w"> </span><span class="o">=</span><span class="s">&quot;average&quot;</span><span class="p">,</span>
+<span class="n">clustering_distance_columns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pearson&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<p>Now, we apply PCA to the data, using the prcomp function. Make sure that you know what the arguments to the function stand for. </p>
+<div class="highlight"><pre><span></span><code><span class="n">cols</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">setosa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gold&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">versicolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lightgreen&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">virginica</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lightblue&quot;</span><span class="p">)</span>
+<span class="n">pca.iris.cov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">prcomp</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">scale.</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">pca.iris.cov</span><span class="o">$</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cols</span><span class="p">[</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">],</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>What can you see in the sample plot? </p>
+<p>In addition to the sample configuration, we also look at the variable loadings, to see which variables contribute most to the principal components, and at the fraction of variance that is explained by each principal component. </p>
+<div class="highlight"><pre><span></span><code><span class="n">pca.iris.cov</span><span class="o">$</span><span class="n">rotation</span><span class="w"> </span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">pca.iris.cov</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>Which variables have the strongest influence on each of the first two principal components? How can you use this information to interpret the sample PCA representation? </p>
+<p>We can now visualize the sample scores and the variable loadings together in a biplot. 
+<div class="highlight"><pre><span></span><code><span class="nf">biplot</span><span class="p">(</span><span class="n">pca.iris.cov</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div></p>
+<p>What do the different objects in the biplot represent? How are they connected to the output from prcomp? </p>
+<p>The sample scores from PCA are obtained as linear combinations of the four measured variables, with weights given by the variable loadings. Verify that this is the case e.g. for the scores for the first flower. </p>
+<div class="highlight"><pre><span></span><code><span class="n">iris.centered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="c1"># compute linear combination </span>
+<span class="n">scores.sample1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris.centered</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">%*%</span><span class="w"> </span><span class="n">pca.iris.cov</span><span class="o">$</span><span class="n">rotation</span><span class="w"> </span><span class="c1"># compare to PCA scores </span>
+<span class="n">pca.iris.cov</span><span class="o">$</span><span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="o">/</span><span class="n">scores.sample1</span><span class="w"> </span>
+</code></pre></div>
+<p>The PCA just applied was based on the non-standardized variables, that is, on the covariance matrix. </p>
+<p>Where was this specified? Can we gain some understanding of the results (the variable loadings) by studying the individual variable variances? </p>
+<div class="highlight"><pre><span></span><code><span class="nf">var</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">])</span><span class="w"> </span>
+</code></pre></div>
+<p>Next, we rerun the analysis with standardized variables. 
+<div class="highlight"><pre><span></span><code><span class="n">pca.iris.corr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">prcomp</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">scale.</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">pca.iris.corr</span><span class="o">$</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">)</span><span class="w"> </span>
+<span class="n">pca.iris.corr</span><span class="o">$</span><span class="n">rotation</span><span class="w"> </span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">pca.iris.corr</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">biplot</span><span class="p">(</span><span class="n">pca.iris.corr</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div></p>
+<p>How did the results change? Can we understand the change by using the information form the pairwise scatterplots and the individual variances? Which variables appear to be most important for separating the two groups of iris flowers seen in the PCA plot? </p>
+<p>To see the amount of variance captured by each of the principal components, construct scree plots for the two PCAs. </p>
+<div class="highlight"><pre><span></span><code><span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">))</span><span class="w"> </span>
+<span class="nf">screeplot</span><span class="p">(</span><span class="n">pca.iris.cov</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;line&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">screeplot</span><span class="p">(</span><span class="n">pca.iris.corr</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;line&quot;</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>How many principal components are needed to explain most of the variance in the data? </p>
+<h2 id="dengue-fever-example">Dengue fever example</h2>
+<p>In this example, we will use a gene expression data set aimed at studying the differences between patients with dengue fever and healthy controls or convalescents. The data set corresponds to a publication by Kwissa et al (Cell Host &amp; Microbe 16:115-127 (2014)), and the expression matrix has been deposited in Gene Expression Omnibus (GEO) with accession number GDS5093. </p>
+<h3 id="data-retrieval">Data retrieval</h3>
+<p>We will use the GEOquery package to retrieve the data and platform annotation information. </p>
+<p>The GEOquery package is available from Bioconductor, and can be installed in the following way: 
+<div class="highlight"><pre><span></span><code><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nf">require</span><span class="p">(</span><span class="s">&quot;BiocManager&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span>
+<span class="w">    </span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;BiocManager&quot;</span><span class="p">)</span>
+
+<span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&quot;GEOquery&quot;</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+And the data retrieved like this and then have a look at the downloaded data :
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">GEOquery</span><span class="p">)</span><span class="w">  </span>
+<span class="c1">## Retrieve the data from GEO </span>
+<span class="n">gds</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">getGEO</span><span class="p">(</span><span class="s">&quot;GDS5093&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="c1">## If you have already downloaded the data, you can load the soft file directly </span>
+<span class="c1">## gds &lt;- getGEO(&quot;GDS5093.soft.gz&quot;)  </span>
+
+<span class="c1">## Look at the elements of the downloaded data head(Columns(gds)) </span>
+<span class="nf">head</span><span class="p">(</span><span class="nf">Table</span><span class="p">(</span><span class="n">gds</span><span class="p">))</span><span class="w"> </span>
+<span class="nf">head</span><span class="p">(</span><span class="nf">Meta</span><span class="p">(</span><span class="n">gds</span><span class="p">))</span><span class="w">  </span>
+
+<span class="c1">## Convert the gds object to an expression set </span>
+<span class="n">eset</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">GDS2eSet</span><span class="p">(</span><span class="n">gds</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div></p>
+<p>We have converted the downloaded object to a so called expression set. The expression set is a special Bioconductor data container that is commonly used to store all information associated with a microarray experiment. Using different accessor functions, we can extract the different types of information stored in the expression set (expression values, sample annotations, variable annotations) </p>
+<div class="highlight"><pre><span></span><code><span class="c1">## Sample information </span>
+<span class="nf">head</span><span class="p">(</span><span class="nf">pData</span><span class="p">(</span><span class="n">eset</span><span class="p">))</span><span class="w">  </span>
+<span class="c1">## Expression matrix </span>
+<span class="nf">head</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">eset</span><span class="p">))</span><span class="w">  </span>
+<span class="c1">## Feature information </span>
+<span class="nf">head</span><span class="p">(</span><span class="nf">fData</span><span class="p">(</span><span class="n">eset</span><span class="p">))</span><span class="w"> </span>
+</code></pre></div>
+<h3 id="principal-component-analysis">Principal component analysis</h3>
+<p>First we perform a PCA using all the variables in the data set. We will perform the following analyses using data on probeset level, but it could also be done after summarizing the expression for all probe sets targeting the same gene. 
+<div class="highlight"><pre><span></span><code><span class="n">pca</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">prcomp</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">eset</span><span class="p">)),</span><span class="w"> </span><span class="n">scale.</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div></p>
+<p>Plot the sample representation from the PCA. How much variance is encoded by each principal component? Are the principal components encoding known information? </p>
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span><span class="w"> </span>
+<span class="n">pca</span><span class="o">$</span><span class="n">sdev</span><span class="o">^</span><span class="m">2</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">sdev</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="w">  </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="nf">factor</span><span class="p">(</span><span class="nf">pData</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span><span class="o">$</span><span class="n">disease.state</span><span class="p">))</span><span class="w"> </span>
+<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">levels</span><span class="p">(</span><span class="nf">factor</span><span class="p">(</span><span class="nf">pData</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span><span class="o">$</span><span class="n">disease.state</span><span class="p">)),</span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>It is common practice to filter out lowly varying genes before standardizing the data set and performing PCA. We will try this approach, using two different filter thresholds, leaving 5,000 and 100 variables, respectively. 
+<div class="highlight"><pre><span></span><code><span class="n">vars</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">eset</span><span class="p">),</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="p">)</span><span class="w"> </span>
+<span class="n">vars.order</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">order</span><span class="p">(</span><span class="n">vars</span><span class="p">,</span><span class="w"> </span><span class="n">decreasing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">  </span>
+<span class="n">pca.5000</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">prcomp</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">eset</span><span class="p">)[</span><span class="n">vars.order</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5000</span><span class="p">],</span><span class="w"> </span><span class="p">]),</span><span class="w"> </span><span class="n">scale.</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">pca.5000</span><span class="o">$</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="nf">pData</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span><span class="o">$</span><span class="n">disease.state</span><span class="p">))</span><span class="w"> </span>
+<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">levels</span><span class="p">(</span><span class="nf">factor</span><span class="p">(</span><span class="nf">pData</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span><span class="o">$</span><span class="n">disease.state</span><span class="p">)),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">)</span><span class="w">  </span>
+<span class="n">pca.100</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">prcomp</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">eset</span><span class="p">)[</span><span class="n">vars.order</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">],</span><span class="w"> </span><span class="p">]),</span><span class="w"> </span><span class="n">scale.</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">pca.100</span><span class="o">$</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="nf">pData</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span><span class="o">$</span><span class="n">disease.state</span><span class="p">))</span><span class="w"> </span>
+<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">levels</span><span class="p">(</span><span class="nf">factor</span><span class="p">(</span><span class="nf">pData</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span><span class="o">$</span><span class="n">disease.state</span><span class="p">)),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div></p>
+<p>What do you notice in the last plot? The PC2 clearly splits the samples into two groups. Does this correspond to any known sample annotation? </p>
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">pca.100</span><span class="o">$</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="nf">pData</span><span class="p">(</span><span class="n">eset</span><span class="p">)</span><span class="o">$</span><span class="n">infection</span><span class="p">))</span><span class="w"> </span>
+</code></pre></div>
+<p>How can we find out what this is? One way is to look at the genes that are responsible for the split, that is, the ones that are contributing a lot to PC2. </p>
+<div class="highlight"><pre><span></span><code><span class="n">pc2.weights</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">pca.100</span><span class="o">$</span><span class="n">rotation</span><span class="p">[,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">drop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">])</span><span class="w"> </span>
+<span class="n">pc2.weights</span><span class="o">$</span><span class="n">ChromosomeLoc</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">fData</span><span class="p">(</span><span class="n">eset</span><span class="p">)[</span><span class="nf">rownames</span><span class="p">(</span><span class="n">pc2.weights</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Chromosome location&quot;</span><span class="p">]</span><span class="w"> </span>
+<span class="nf">head</span><span class="p">(</span><span class="n">pc2.weights</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">pc2.weights</span><span class="o">$</span><span class="n">PC2</span><span class="p">),</span><span class="w"> </span><span class="p">])</span>
+<span class="nf">tail</span><span class="p">(</span><span class="n">pc2.weights</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">pc2.weights</span><span class="o">$</span><span class="n">PC2</span><span class="p">),</span><span class="w"> </span><span class="p">])</span><span class="w"> </span>
+</code></pre></div>
+<p>Now what do you think this component represents? </p>
+<h2 id="golub-leukemia-data">Golub leukemia data</h2>
+<p>In this exercise we study a microarray data set that is available as an expression set in R, from the library golubEsets. </p>
+<p>We load the data and extract the expression values and a sample annotation. 
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">golubEsets</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">data</span><span class="p">(</span><span class="n">Golub_Train</span><span class="p">)</span><span class="w"> </span>
+<span class="n">golub.expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">exprs</span><span class="p">(</span><span class="n">Golub_Train</span><span class="p">)</span><span class="w"> </span>
+<span class="n">golub.sample.annot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Golub_Train</span><span class="o">$</span><span class="n">ALL.AML</span><span class="w"> </span>
+</code></pre></div></p>
+<p>First, we apply PCA to the unstandardized data. </p>
+<div class="highlight"><pre><span></span><code><span class="n">pca.golub.cov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">prcomp</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">golub.expr</span><span class="p">),</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">scale.</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">pca.golub.cov</span><span class="o">$</span><span class="n">x</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">golub.sample.annot</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>We also apply PCA to the standardized data. </p>
+<div class="highlight"><pre><span></span><code><span class="n">pca.golub.corr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">prcomp</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">golub.expr</span><span class="p">),</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">scale.</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">pca.golub.corr</span><span class="o">$</span><span class="n">x</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">golub.sample.annot</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>Try also to plot the second and third principal components instead of the first two. What may be the reason for the discrepancy between the two results? </p>
+<p>For high-dimensional data sets like microarrays it is common to filter out the variables with low variance before applying the PCA. Extract the 1,000 variables with the highest variance from the Golub data set, and apply PCA to the standardized data sets to focus mainly on the correlations between the remaining variables. </p>
+<div class="highlight"><pre><span></span><code><span class="n">golub.expr.filtered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">golub.expr</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="nf">apply</span><span class="p">(</span><span class="n">golub.expr</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="p">),</span><span class="w"> </span><span class="n">decreasing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">],</span><span class="w"> </span><span class="p">]</span>
+<span class="n">pca.golub.filtered.corr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">prcomp</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">golub.expr.filtered</span><span class="p">),</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">scale.</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">pca.golub.filtered.corr</span><span class="o">$</span><span class="n">x</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">golub.sample.annot</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">)</span>
+</code></pre></div>
+<p>Compare the resulting plot to the previous two plots. What happens if you apply PCA to the unstandardized, filtered data set? </p>
+<h2 id="swiss-banknote-data">Swiss banknote data</h2>
+<p>In this exercise we consider a data set containing measurements from 100 genuine Swiss banknotes and 100 counterfeit notes. For each banknote there are six measurements; the length of the bill, the width of the left and right edges, the widths of the bottom and top margin, and the length of the image diagonal. The data set is available in the R package alr3, that is now removed from CRAN, an archived version is still available. Check the precourse, on how to install that library. We also included the banknote as a txt file in the exercises folder </p>
+<p>First, we load the data and look at the summary 
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">alr3</span><span class="p">)</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">banknote</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">banknote</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Then we apply PCA after scaling each variable to unit variance. </p>
+<div class="highlight"><pre><span></span><code><span class="n">pca.banknote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">prcomp</span><span class="p">(</span><span class="n">banknote</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">],</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">scale.</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">pca.banknote</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>In this example, we will create a biplot manually, by overlaying the sample and variable PCA plots </p>
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="n">pca.banknote</span><span class="o">$</span><span class="n">x</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;green&quot;</span><span class="p">)[</span><span class="n">banknote</span><span class="p">[,</span><span class="w"> </span><span class="m">7</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">)</span>
+<span class="nf">arrows</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="o">*</span><span class="n">pca.banknote</span><span class="o">$</span><span class="n">rotation</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="m">2</span><span class="o">*</span><span class="n">pca.banknote</span><span class="o">$</span><span class="n">rotation</span><span class="p">[,</span><span class="w"> </span><span class="m">2</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.1</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="m">2.4</span><span class="o">*</span><span class="n">pca.banknote</span><span class="o">$</span><span class="n">rotation</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">],</span><span class="w"> </span><span class="nf">colnames</span><span class="p">(</span><span class="n">banknote</span><span class="p">[,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">]),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>In the resulting plot, the black and green points represent the genuine and counterfeit notes, respectively. The red arrows correspond to the contributions of the six variables to the principal components. </p>
+<p>In what ways did the counterfeiters fail to mimic the genuine notes? Look at the individual variables to verify. </p>
+<div class="highlight"><pre><span></span><code><span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">))</span><span class="w"> </span>
+<span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Length&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Left&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Right&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bottom&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Top&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Diagonal&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="nf">boxplot</span><span class="p">(</span><span class="n">banknote</span><span class="p">[,</span><span class="w"> </span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">banknote</span><span class="p">[,</span><span class="w"> </span><span class="s">&quot;Y&quot;</span><span class="p">],</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Banknote status&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span>
+</code></pre></div>
+<h2 id="cholera-dataset">Cholera Dataset</h2>
+<p>In 1852, William Farr, published a report of the Registrar-General on mortality due to cholera in England in the years 1848-1849, during which there was a large epidemic throughout the country. Farr initially believed that cholera arose from bad air (&ldquo;miasma&rdquo;) associated with low elevation above the River Thames. John Snow (1855) later showed that the disease was principally spread by contaminated water.</p>
+<p>This data set comes from a paper by Brigham et al. (2003) that analyses some tables from Farr&rsquo;s report to examine the prevalence of death from cholera in the districts of London in relation to the available predictors from Farr&rsquo;s table.</p>
+<p>First we ask you to load the dataset, which is part of the HistData package in R and load the cholera data set.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">HistData</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ComplexHeatmap</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">circlize</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+
+<span class="nf">data</span><span class="p">(</span><span class="s">&quot;Cholera&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>We then create a variable by selecting only the numerical values from the table (for instance dropping Region information) and scale this data, such that all variable have the same impact. </p>
+<div class="highlight"><pre><span></span><code><span class="n">cholera_num</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Cholera</span><span class="p">[,</span><span class="w"> </span><span class="nf">sapply</span><span class="p">(</span><span class="n">Cholera</span><span class="p">,</span><span class="w"> </span><span class="n">is.numeric</span><span class="p">)]</span>
+<span class="n">cholera_num</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">na.omit</span><span class="p">(</span><span class="n">cholera_num</span><span class="p">)</span>
+
+<span class="c1"># Scale numeric variables (important for k-means)</span>
+<span class="n">cholera_scaled</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="n">cholera_num</span><span class="p">)</span>
+</code></pre></div>
+<p>We will now use one of the popular clustering algorithm called kmeans, which is part of the partitioning clustering (and therefore gives us a cluster number to which each patient belongs to).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run k-means with k = 3 clusters</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
+<span class="n">km</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">cholera_scaled</span><span class="p">,</span><span class="w"> </span><span class="n">centers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">nstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="p">)</span>
+<span class="n">Cholera</span><span class="o">$</span><span class="n">cluster</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">km</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+</code></pre></div>
+<p>Make different trials how much does the clustering change if you change the nstarts or the number of iterations. What do you observe</p>
+<details class="done">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="n">km</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">cholera_scaled</span><span class="p">,</span><span class="w"> </span><span class="n">centers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">nstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+<span class="n">Cholera</span><span class="o">$</span><span class="n">cluster3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">km</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+<span class="n">km</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">cholera_scaled</span><span class="p">,</span><span class="w"> </span><span class="n">centers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">iter.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
+<span class="n">Cholera</span><span class="o">$</span><span class="n">clustermax10</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">km</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+<span class="n">km</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">cholera_scaled</span><span class="p">,</span><span class="w"> </span><span class="n">centers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">iter.max</span><span class="o">=</span><span class="m">100</span><span class="p">)</span>
+<span class="n">Cholera</span><span class="o">$</span><span class="n">clustermax100</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">km</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+
+<span class="nf">table</span><span class="p">(</span><span class="n">Cholera</span><span class="o">$</span><span class="n">cluster</span><span class="p">,</span><span class="n">Cholera</span><span class="o">$</span><span class="n">cluster3</span><span class="p">)</span>
+<span class="nf">table</span><span class="p">(</span><span class="n">Cholera</span><span class="o">$</span><span class="n">cluster</span><span class="p">,</span><span class="n">Cholera</span><span class="o">$</span><span class="n">clustermax10</span><span class="p">)</span>
+<span class="nf">table</span><span class="p">(</span><span class="n">Cholera</span><span class="o">$</span><span class="n">cluster</span><span class="p">,</span><span class="n">Cholera</span><span class="o">$</span><span class="n">clustermax100</span><span class="p">)</span>
+<span class="nf">table</span><span class="p">(</span><span class="n">Cholera</span><span class="o">$</span><span class="n">cluster100</span><span class="p">,</span><span class="n">Cholera</span><span class="o">$</span><span class="n">clustermax10</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<p>Using the aggregate function in R try to understand the composition of the clusters </p>
+<div class="highlight"><pre><span></span><code><span class="nf">aggregate</span><span class="p">(</span><span class="n">cholera_num</span><span class="p">,</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">cluster</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cholera</span><span class="o">$</span><span class="n">cluster</span><span class="p">),</span><span class="w"> </span><span class="n">mean</span><span class="p">)</span>
+</code></pre></div>
+<p>Clearly cluster 3 (or maybe another one if you did not set the seed) has a higher cholera_drate than the others. One can then try to understand what it is linked to, by looking at a table with the &ldquo;water&rdquo; information</p>
+<div class="highlight"><pre><span></span><code><span class="nf">table</span><span class="p">(</span><span class="n">Cholera</span><span class="o">$</span><span class="n">cluster</span><span class="p">,</span><span class="n">Cholera</span><span class="o">$</span><span class="n">water</span><span class="p">)</span>
+</code></pre></div>
+<p>We will now do a ComplexHeatmap to illustrate this clustering</p>
+<div class="highlight"><pre><span></span><code><span class="n">row_ha</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rowAnnotation</span><span class="p">(</span>
+<span class="n">Cluster</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cholera</span><span class="o">$</span><span class="n">cluster</span><span class="p">,</span>
+<span class="n">Water</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cholera</span><span class="o">$</span><span class="n">water</span><span class="p">,</span>
+<span class="n">col</span><span class="o">=</span><span class="w">   </span><span class="nf">list</span><span class="p">(</span><span class="n">Cluster</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="s">&quot;2&quot;</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="s">&quot;3&quot;</span><span class="o">=</span><span class="s">&quot;orange&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">Water</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Battersea&quot;</span><span class="o">=</span><span class="s">&quot;#AEC6CF&quot;</span><span class="p">,</span><span class="s">&quot;New River&quot;</span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#FFB7B2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Kew&quot;</span><span class="o">=</span><span class="w"> </span>
+<span class="w">  </span><span class="s">&quot;#B5EAD7&quot;</span><span class="p">)),</span><span class="w">  </span>
+<span class="n">annotation_name_side</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;top&quot;</span>
+<span class="w">    </span><span class="p">)</span>
+
+
+<span class="w"> </span><span class="n">row_d</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">dist</span><span class="p">(</span><span class="n">cholera_scaled</span><span class="p">)</span>
+<span class="w"> </span><span class="n">row_clust</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">hclust</span><span class="p">(</span><span class="n">row_d</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ward.D2&quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">Heatmap</span><span class="p">(</span>
+<span class="w">        </span><span class="n">cholera_scaled</span><span class="p">,</span>
+<span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;z-score&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">cluster_rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">row_clust</span><span class="p">,</span>
+<span class="w">        </span><span class="n">cluster_columns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span>
+<span class="w">        </span><span class="n">show_row_names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span>
+<span class="w">        </span><span class="n">left_annotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">row_ha</span>
+<span class="w">   </span><span class="p">)</span>
+</code></pre></div>
+<p>In conlusion, there seem to be a link between Cholera drate and the water supply of the people. </p>
+<h2 id="points-in-plates-bonus">Points in plates (BONUS)</h2>
+<ol>
+<li>Import the data from dataClustering.csv</li>
+<li>What is the dimension of this dataset?</li>
+<li>How many data point do we have?</li>
+</ol>
+<details class="done">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="s">&quot;cluster&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="n">mydata1</span><span class="o">&lt;-</span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;dataClustering.csv&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="n">df</span><span class="o">&lt;-</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">mydata1</span><span class="o">$</span><span class="n">Coord_X</span><span class="w"> </span><span class="p">,</span><span class="n">mydata1</span><span class="o">$</span><span class="n">Coord_Y</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;X&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Y&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="o">$</span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="m">20</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">dim</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<ol start="4">
+<li>Evaluate Euclidean distance of points in a plates</li>
+</ol>
+<details class="done">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="n">df.dist</span><span class="o">&lt;-</span><span class="nf">dist</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+</details>
+<ol start="5">
+<li>Classify points to find clusters using hierarchical
+clustering and the average agglomeration method</li>
+</ol>
+<details class="done">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="n">df.h</span><span class="o">&lt;-</span><span class="nf">hclust</span><span class="p">(</span><span class="n">df.dist</span><span class="p">,</span><span class="s">&quot;ave&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">df.h</span><span class="p">)</span><span class="w"> </span>
+
+<span class="n">colorScale</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">colorRampPalette</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;green&quot;</span><span class="p">,</span><span class="s">&quot;yellow&quot;</span><span class="p">,</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="s">&quot;darkred&quot;</span><span class="p">))(</span><span class="m">1000</span><span class="p">)</span>
+<span class="nf">heatmap</span><span class="p">(</span><span class="nf">as.matrix</span><span class="p">(</span><span class="n">df.dist</span><span class="p">),</span><span class="n">Colv</span><span class="o">=</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">Rowv</span><span class="o">=</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="o">=</span><span class="s">&quot;none&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="n">colorScale</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<ol start="6">
+<li>We expect to have 3 clusters. When you apply k-means
+algorithm using 1 iteration, does it differ from applying it
+using 10 or 100 iterations?</li>
+</ol>
+<details class="done">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="nf">kmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+
+<span class="n">cl.1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">iter.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl.1</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">cl.1</span><span class="o">$</span><span class="n">centers</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">)</span>
+
+<span class="nf">kmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+
+<span class="n">cl.1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">iter.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl.1</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">cl.1</span><span class="o">$</span><span class="n">centers</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">)</span>
+
+<span class="n">cl.10</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">iter.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl.10</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">cl.10</span><span class="o">$</span><span class="n">centers</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">)</span>
+
+<span class="n">cl.100</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">iter.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl.100</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">cl.100</span><span class="o">$</span><span class="n">centers</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<ol start="7">
+<li>What is the outcome of the C-means clustering?</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;e1071&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">e1071</span><span class="p">)</span>
+<span class="o">?</span><span class="n">cmeans</span>
+</code></pre></div>
+<details class="done">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="nf">cmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+
+<span class="n">cl.1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">iter.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl.1</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">cl.1</span><span class="o">$</span><span class="n">centers</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">)</span>
+
+<span class="n">cl.10</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">iter.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl.10</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">cl.10</span><span class="o">$</span><span class="n">centers</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">)</span>
+
+<span class="n">cl.100</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cmeans</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">iter.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl.100</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">cl.100</span><span class="o">$</span><span class="n">centers</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<ol start="8">
+<li>What are the top 3 models mclustBIC function suggests
+based on the BIC criterion?</li>
+<li>How many clusters did it find using the top model?</li>
+<li>Plot the outcome</li>
+</ol>
+<details class="done">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="s">&quot;mclust&quot;</span><span class="p">)</span>
+<span class="n">BIC</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mclustBIC</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">BIC</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">BIC</span><span class="p">)</span>
+<span class="n">mod1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">Mclust</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BIC</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">mod1</span><span class="p">,</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">mod1</span><span class="p">,</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;classification&quot;</span><span class="p">)</span>
+
+<span class="n">mod2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">Mclust</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">modelName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;VEE&quot;</span><span class="p">))</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">mod2</span><span class="p">,</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;classification&quot;</span><span class="p">)</span>
+
+<span class="n">mod3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">Mclust</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">modelName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;EEE&quot;</span><span class="p">,</span><span class="n">G</span><span class="o">=</span><span class="m">9</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">mod3</span><span class="p">,</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;classification&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": "content.code.copy", "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
