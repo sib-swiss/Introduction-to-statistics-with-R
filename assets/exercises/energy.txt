@@ -1,0 +1,23 @@
+expend	stature
+1	9.21	obese
+2	7.53	lean
+3	7.48	lean
+4	8.08	lean
+5	8.09	lean
+6	10.15	lean
+7	8.4	lean
+8	10.88	lean
+9	6.13	lean
+10	7.9	lean
+11	11.51	obese
+12	12.79	obese
+13	7.05	lean
+14	11.85	obese
+15	9.97	obese
+16	7.48	lean
+17	8.79	obese
+18	9.69	obese
+19	9.68	obese
+20	7.58	lean
+21	9.19	obese
+22	8.11	lean
